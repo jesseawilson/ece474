@@ -1,0 +1,49 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/nfs/stak/students/w/wilsonj/ECE474/inclass3
+T_opt
+Z1 VkoPf8?WLO8TAGjMdJS@`I2
+Z2 04 11 4 work stoplighttb fast 0
+Z3 =1-74867ae0fdb4-53616004-9984c-77dd
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.6a;45
+Z7 d/nfs/stak/students/w/wilsonj/ECE474/inclass3
+vstoplight
+Z8 Mx1 19 __model_tech/sv_std 3 std
+Z9 DXx19 __model_tech/sv_std 3 std 0 22 WnQ=;W1X^o9K1PIQTgInR3
+Z10 ID;CK<5kjTicQTg6C_6B782
+Z11 Vj^U]5LcBRY<Fz0b`0JH9i1
+S1
+R7
+Z12 w1398890269
+Z13 8stoplight_skel.sv
+Z14 Fstoplight_skel.sv
+L0 5
+Z15 OE;L;6.6a;45
+r1
+31
+Z16 o-L mtiAvm -L mtiOvm -L mtiUPF
+Z17 !s100 NB>G4l9OaB[?YeHJkg6C[1
+Z18 !s105 stoplight_skel_sv_unit
+!s85 0
+vstoplighttb
+R8
+R9
+Z19 I6k5Mc9GJ5Y3njNOj9c3F42
+Z20 VTce@6<AYaRLZa:H?0YfbL1
+S1
+R7
+Z21 w1398890443
+Z22 8stoplighttb.sv
+Z23 Fstoplighttb.sv
+L0 8
+R15
+r1
+31
+R16
+Z24 !s100 @X]N]z?8Jj6ESkfYI3Tgb0
+Z25 !s105 stoplighttb_sv_unit
+!s85 0

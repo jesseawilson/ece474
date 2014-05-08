@@ -1,0 +1,24 @@
+# vsim -c stoplighttb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-358.18.1.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.stoplighttb(fast)
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=0, NS_green=1
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=1, NS_green=0
+# EW_red=0, EW_yellow=0, EW_green=1, NS_red=1, NS_yellow=0, NS_green=0
+# EW_red=0, EW_yellow=1, EW_green=0, NS_red=1, NS_yellow=0, NS_green=0
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=0, NS_green=1
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=1, NS_green=0
+# EW_red=0, EW_yellow=0, EW_green=1, NS_red=1, NS_yellow=0, NS_green=0
+# EW_red=0, EW_yellow=1, EW_green=0, NS_red=1, NS_yellow=0, NS_green=0
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=0, NS_green=1
+# EW_red=1, EW_yellow=0, EW_green=0, NS_red=0, NS_yellow=1, NS_green=0

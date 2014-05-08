@@ -1,0 +1,31 @@
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.0.1.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -do alu.do alu 
+# Loading work.alu(fast)
+# Loading work.FADDX1(fast)
+# Loading work.XOR2X1(fast)
+# Loading work.AND2X1(fast)
+# Loading work.MUX41X1(fast)
+# Loading work.OR2X1(fast)
+# Loading work.MUX21X1(fast)
+# Loading work.INVX0(fast)
+# Loading work.NOR4X0(fast)
+# Loading work.OR4X1(fast)
+# Loading work.NAND2X0(fast)
+# Loading work.NAND4X0(fast)
+# Loading work.NOR2X0(fast)
+# Loading work.NAND3X0(fast)
+# Loading work.XNOR2X1(fast)
+# Loading work.AO21X1(fast)
+# Loading work.AND3X1(fast)
+# do alu.do 
+# Missing signal name or pattern
+# .main_pane.objects.interior.cs.body.tree

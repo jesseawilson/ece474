@@ -1,0 +1,19 @@
+Jesse Wilson
+ECE 474 
+Homework 2
+
+Problem 4
+
+a) Total Cell Area: 1643.4 um^2
+   Total Area:	    1731.3 um^2
+
+b) There were 16 unique types of gates used in the design.
+
+c) According to the "report_area" command, 132 individual gates were used.
+   However, when I do the suggested math, I found that the area of the 2 input
+   nand was 5.5296 um^2, which when divided by 1643.4 (area of the gates) it
+   suggests that I have 297 gates. I don't know why this is.
+
+d) 2.66 us delay through the circuit, with the longest delay being from the
+   opcode 3 input to the alu_zero output.
+
