@@ -32,7 +32,7 @@ module fifo (
 
 
 //write counter logic
-always @(posedge wr_clk, negedge reset_n) begin
+always @(posedge wr_clk, negedge reset_n)  begin
 	if(!reset_n)	wr_addr = '0;
 
 	else if(wr)	begin
@@ -59,7 +59,7 @@ end
 
 
 //read counter logic
-always @(posedge rd_clk, negedge reset_n) begin
+always @(posedge rd_clk, negedge reset_n)  begin
 	if(!reset_n)	rd_addr = '0;
 
 	else if(rd)	begin
@@ -86,7 +86,7 @@ end
 
 
 //full and empty flag logic
-always_comb @(posedge wr_clk, negedge reset_n) begin
+always_comb  begin
 	if(!reset_n)	begin
 			empty = 1;
 			full  = 0;
