@@ -18,7 +18,7 @@ module fifo (
 
 	reg	[2:0]	rd_addr;
 	reg     [2:0]	wr_addr;
-	reg     [7:0]	wr_sel;
+	reg     [7:0]	wr_en;
 	reg		last_wr; //0 if read, 1 if write
 
 	reg	[7:0]	rd_byte0;
@@ -37,14 +37,14 @@ always @(posedge wr_clk, negedge reset_n)  begin
 
 	else if(wr)	begin
 			unique case (wr_addr)
-			    0 : wr_sel[0] = 1;
-			    1 : wr_sel[1] = 1;
-		    	    2 : wr_sel[2] = 1;
-		    	    3 : wr_sel[3] = 1;
-		    	    4 : wr_sel[4] = 1;
-		    	    5 : wr_sel[5] = 1;
-		    	    6 : wr_sel[6] = 1;
-		    	    7 : wr_sel[7] = 1;
+			    0 : wr_en[0] = 1;
+			    1 : wr_en[1] = 1;
+		    	    2 : wr_en[2] = 1;
+		    	    3 : wr_en[3] = 1;
+		    	    4 : wr_en[4] = 1;
+		    	    5 : wr_en[5] = 1;
+		    	    6 : wr_en[6] = 1;
+		    	    7 : wr_en[7] = 1;
 			endcase
 	
 			wr_addr = wr_addr + 1; 
@@ -53,7 +53,7 @@ always @(posedge wr_clk, negedge reset_n)  begin
 
 	else		begin
 			wr_addr = wr_addr;
-			wr_sel  = '0;
+			wr_en  = '0;
 			end
 end
 
@@ -78,10 +78,7 @@ always @(posedge rd_clk, negedge reset_n)  begin
 			last_wr = 0;
 			end
 
-	else		begin
-			rd_addr = rd_addr; 
-			wr_sel  = '0;
-			end
+	else		rd_addr = rd_addr; 
 end
 
 
@@ -109,7 +106,7 @@ end
 mem8 mem8_0(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[0]),
+.en		(wr_en[0]),
 .byte_in	(data_in),
 .byte_out	(rd_byte0)
 );
@@ -117,7 +114,7 @@ mem8 mem8_0(
 mem8 mem8_1(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[1]),
+.en		(wr_en[1]),
 .byte_in	(data_in),
 .byte_out	(rd_byte1)
 );
@@ -125,7 +122,7 @@ mem8 mem8_1(
 mem8 mem8_2(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[2]),
+.en		(wr_en[2]),
 .byte_in	(data_in),
 .byte_out	(rd_byte2)
 );
@@ -133,7 +130,7 @@ mem8 mem8_2(
 mem8 mem8_3(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[3]),
+.en		(wr_en[3]),
 .byte_in	(data_in),
 .byte_out	(rd_byte3)
 );
@@ -141,7 +138,7 @@ mem8 mem8_3(
 mem8 mem8_4(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[4]),
+.en		(wr_en[4]),
 .byte_in	(data_in),
 .byte_out	(rd_byte4)
 );
@@ -149,7 +146,7 @@ mem8 mem8_4(
 mem8 mem8_5(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[5]),
+.en		(wr_en[5]),
 .byte_in	(data_in),
 .byte_out	(rd_byte5)
 );
@@ -157,7 +154,7 @@ mem8 mem8_5(
 mem8 mem8_6(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[6]),
+.en		(wr_en[6]),
 .byte_in	(data_in),
 .byte_out	(rd_byte6)
 );
@@ -165,7 +162,7 @@ mem8 mem8_6(
 mem8 mem8_7(
 .clk		(wr_clk),
 .reset_n	(reset_n),
-.en		(wr_sel[7]),
+.en		(wr_en[7]),
 .byte_in	(data_in),
 .byte_out	(rd_byte7)
 );
