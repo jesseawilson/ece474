@@ -18,80 +18,110 @@ module fifo (
 
 	reg	[2:0]	rd_addr;
 	reg     [2:0]	wr_addr;
-	reg     [7:0]	wr_en;
-	reg		last_wr; //0 if read, 1 if write
+	reg		prev; //1 for write, 0 for read
+	reg	[7:0]	wr_byte;
 
-	reg	[7:0]	rd_byte0;
-	reg	[7:0]	rd_byte1;
-	reg	[7:0]	rd_byte2;
-	reg	[7:0]	rd_byte3;
-	reg	[7:0]	rd_byte4;
-	reg	[7:0]	rd_byte5;
-	reg	[7:0]	rd_byte6;
-	reg	[7:0]	rd_byte7;
+	reg	[7:0]	byte0;
+	reg	[7:0]	byte1;
+	reg	[7:0]	byte2;
+	reg	[7:0]	byte3;
+	reg	[7:0]	byte4;
+	reg	[7:0]	byte5;
+	reg	[7:0]	byte6;
+	reg	[7:0]	byte7;
 
 
-//write counter logic
-always @(posedge wr_clk, negedge reset_n)  begin
-	if(!reset_n)	wr_addr = '0;
+//write counter
+always_ff @(posedge wr_clk, negedge reset_n)  
+begin
+	if(!reset_n)	wr_addr <= '0;
+	else if(wr)	wr_addr <= wr_addr + 1;  //may cause issue by incrementing durring writing
+	else		wr_addr <= wr_addr;
+end
 
+
+//read counter
+always_ff @(posedge rd_clk, negedge reset_n)  
+begin
+	if(!reset_n)	rd_addr <= '0;
+	else if(rd)	rd_addr <= rd_addr + 1;
+	else		rd_addr <= rd_addr;
+end
+
+
+//write to memory logic
+always_ff @(posedge wr_clk, negedge reset_n)  
+begin
+	if(!reset_n)	begin
+  			byte0   <= '0;
+			byte1   <= '0;
+			byte2   <= '0;
+			byte3   <= '0;
+			byte4   <= '0;
+			byte5   <= '0;
+			byte6   <= '0;
+			byte7   <= '0;
+			end
+	
 	else if(wr)	begin
 			unique case (wr_addr)
-			    0 : wr_en[0] = 1;
-			    1 : wr_en[1] = 1;
-		    	    2 : wr_en[2] = 1;
-		    	    3 : wr_en[3] = 1;
-		    	    4 : wr_en[4] = 1;
-		    	    5 : wr_en[5] = 1;
-		    	    6 : wr_en[6] = 1;
-		    	    7 : wr_en[7] = 1;
+			    3'b000 : byte0 = wr_byte;
+			    3'b001 : byte1 = wr_byte; 
+		    	    3'b010 : byte2 = wr_byte; 
+		    	    3'b011 : byte3 = wr_byte; 
+		    	    3'b100 : byte4 = wr_byte; 
+		    	    3'b101 : byte5 = wr_byte; 
+		    	    3'b110 : byte6 = wr_byte; 
+		    	    3'b111 : byte7 = wr_byte; 
 			endcase
-	
-			wr_addr = wr_addr + 1; 
-			last_wr = 1;
+
+			wr_byte <= data_in;
 			end
+	
+	else		wr_byte <= wr_byte;
+end
+
+
+//read from memory logic
+always_ff @(posedge rd_clk, negedge reset_n)  
+begin
+	if(!reset_n)	data_out <= '0;
 
 	else		begin
-			wr_addr = wr_addr;
-			wr_en  = '0;
-			end
-end
-
-
-//read counter logic
-always @(posedge rd_clk, negedge reset_n)  begin
-	if(!reset_n)	rd_addr = '0;
-
-	else if(rd)	begin
 			unique case (rd_addr)
-			    0 : data_out = rd_byte0;
-			    1 : data_out = rd_byte1;
-			    2 : data_out = rd_byte2;
-			    3 : data_out = rd_byte3;
-			    4 : data_out = rd_byte4;
-			    5 : data_out = rd_byte5;
-			    6 : data_out = rd_byte6;
-			    7 : data_out = rd_byte7;
+			    3'b000 : data_out = byte0;
+			    3'b001 : data_out = byte1;
+			    3'b010 : data_out = byte2;
+			    3'b011 : data_out = byte3;
+			    3'b100 : data_out = byte4;
+			    3'b101 : data_out = byte5;
+			    3'b110 : data_out = byte6;
+			    3'b111 : data_out = byte7;
 			endcase
-
-			rd_addr = rd_addr + 1;
-			last_wr = 0;
 			end
-
-	else		rd_addr = rd_addr; 
 end
+
+
 
 
 //full and empty flag logic
-always_comb  begin
+always_comb  
+begin
 	if(!reset_n)	begin
 			empty = 1;
 			full  = 0;
 			end
 
 	else if(rd_addr == wr_addr) begin
-		if(last_wr)	full  = 1;
-		else		empty = 1;
+		if(prev) begin
+			 full  = 1;
+			 empty = 0;
+			 end
+
+		else	 begin
+			 empty = 1;
+			 full  = 0;
+			 end
 		end
 	
 	else	begin
@@ -102,88 +132,5 @@ always_comb  begin
 end
 
 
-//memory modules, 8 bits per module
-mem8 mem8_0(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[0]),
-.byte_in	(data_in),
-.byte_out	(rd_byte0)
-);
-
-mem8 mem8_1(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[1]),
-.byte_in	(data_in),
-.byte_out	(rd_byte1)
-);
-
-mem8 mem8_2(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[2]),
-.byte_in	(data_in),
-.byte_out	(rd_byte2)
-);
-
-mem8 mem8_3(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[3]),
-.byte_in	(data_in),
-.byte_out	(rd_byte3)
-);
-
-mem8 mem8_4(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[4]),
-.byte_in	(data_in),
-.byte_out	(rd_byte4)
-);
-
-mem8 mem8_5(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[5]),
-.byte_in	(data_in),
-.byte_out	(rd_byte5)
-);
-
-mem8 mem8_6(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[6]),
-.byte_in	(data_in),
-.byte_out	(rd_byte6)
-);
-
-mem8 mem8_7(
-.clk		(wr_clk),
-.reset_n	(reset_n),
-.en		(wr_en[7]),
-.byte_in	(data_in),
-.byte_out	(rd_byte7)
-);
-
 endmodule
-
-
-module mem8 (
-	input		clk,
-	input		reset_n, 
-	input		en,
-	input	[7:0]	byte_in,
-	output	[7:0]	byte_out
-	);
-
-//memory 
-always_ff @(posedge clk, negedge reset_n)
-	if(!reset_n)	byte_out <= '0;
-	else if(en)	byte_out <= byte_in;
-	else		byte_out <= byte_out;
-	
-endmodule
-
 
