@@ -12,8 +12,8 @@ module fifo (
 	input            rd,       //read enable    
 	input      [7:0] data_in,  //data in
 	output reg [7:0] data_out, //data out
-	output           empty,    //empty flag
-	output           full      //full flag
+	output reg	 empty,    //empty flag
+	output reg       full      //full flag
 	);
 
 	reg	[3:0]	rd_addr;
@@ -28,8 +28,6 @@ module fifo (
 	reg	[7:0]	byte5;
 	reg	[7:0]	byte6;
 	reg	[7:0]	byte7;
-
-
 
 
 //write to memory logic
@@ -102,15 +100,6 @@ begin
 end
 
 
-//read counter
-always_ff @(posedge rd_clk, negedge reset_n)  
-begin
-	if(!reset_n)	rd_addr <= '0;
-	else if(rd)	rd_addr <= rd_addr + 1;
-	else		rd_addr <= rd_addr;
-end
-
-
 //full and empty flag logic
 always_comb  
 begin
@@ -120,15 +109,16 @@ begin
 			end
 
 	else if(rd_addr[2:0] == wr_addr[2:0]) begin
-		if(rd_addr[3] == wr_addr[3]) begin
-			 full  = 1'b0;
-			 empty = 1'b1;
-			 end
+		if(rd_addr[3] == wr_addr[3]) 
+			begin
+			full  = 1'b0;
+			empty = 1'b1;
+			end
 
-		else	 begin
-			 empty = 1'b1;
-			 full  = 1'b0;
-			 end
+		else	begin
+			empty = 1'b1;
+			full  = 1'b0;
+			end
 		end
 	
 	else	begin
