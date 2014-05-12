@@ -77,18 +77,18 @@ end
 //always pass through currently selected read data to output
 always_comb 
 begin
-	if(!reset_n) data_out <= byte0;
+	if(!reset_n) data_out = byte0;
 
 	else		begin
 			unique case (rd_addr[2:0])
-			    3'b000 : data_out <= byte0;
-			    3'b001 : data_out <= byte1;
-			    3'b010 : data_out <= byte2;
-			    3'b011 : data_out <= byte3;
-			    3'b100 : data_out <= byte4;
-			    3'b101 : data_out <= byte5;
-			    3'b110 : data_out <= byte6;
-			    3'b111 : data_out <= byte7;
+			    3'b000 : data_out = byte0;
+			    3'b001 : data_out = byte1;
+			    3'b010 : data_out = byte2;
+			    3'b011 : data_out = byte3;
+			    3'b100 : data_out = byte4;
+			    3'b101 : data_out = byte5;
+			    3'b110 : data_out = byte6;
+			    3'b111 : data_out = byte7;
 			endcase
 			end
 end
