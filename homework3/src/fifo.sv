@@ -74,7 +74,6 @@ always_ff @(posedge rd_clk, negedge reset_n)
 begin
 	if(!reset_n)	begin
 			rd_addr  <= '0;
-			data_out <= byte0;
 			end
 			
 	else if(rd)	begin
@@ -116,14 +115,14 @@ begin
 			end
 
 		else	begin
-			empty = 1'b1;
-			full  = 1'b0;
+			full  = 1'b1;
+			empty = 1'b0;
 			end
 		end
 	
 	else	begin
-		empty = 1'b0;
 		full  = 1'b0;
+		empty = 1'b0;
 		end
 
 end
