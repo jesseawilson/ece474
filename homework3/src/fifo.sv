@@ -18,7 +18,6 @@ module fifo (
 
 	reg	[3:0]	rd_addr;
 	reg     [3:0]	wr_addr;
-	reg	[7:0]	wr_byte;
 
 	reg	[7:0]	byte0;
 	reg	[7:0]	byte1;
@@ -46,24 +45,21 @@ begin
 			end
 	
 	else if(wr)	begin
-			wr_byte <= data_in;
-
 			unique case (wr_addr[2:0])
-			    3'b000 : byte0 = wr_byte;
-			    3'b001 : byte1 = wr_byte; 
-		    	    3'b010 : byte2 = wr_byte; 
-		    	    3'b011 : byte3 = wr_byte; 
-		    	    3'b100 : byte4 = wr_byte; 
-		    	    3'b101 : byte5 = wr_byte; 
-		    	    3'b110 : byte6 = wr_byte; 
-		    	    3'b111 : byte7 = wr_byte; 
+			    3'b000 : byte0 <= data_in;
+			    3'b001 : byte1 <= data_in; 
+		    	    3'b010 : byte2 <= data_in; 
+		    	    3'b011 : byte3 <= data_in; 
+		    	    3'b100 : byte4 <= data_in; 
+		    	    3'b101 : byte5 <= data_in; 
+		    	    3'b110 : byte6 <= data_in; 
+		    	    3'b111 : byte7 <= data_in; 
 			endcase
 
 			wr_addr <=  wr_addr + 1;
 			end
 	
 	else		begin
-			wr_byte <= wr_byte;
 			wr_addr <= wr_addr;
 			end
 end
@@ -72,32 +68,30 @@ end
 //read from memory logic
 always_ff @(posedge rd_clk, negedge reset_n)  
 begin
-	if(!reset_n)	begin
-			rd_addr  <= '0;
-			end
-			
-	else if(rd)	begin
-			unique case (rd_addr[2:0])
-			    3'b000 : data_out = byte0;
-			    3'b001 : data_out = byte1;
-			    3'b010 : data_out = byte2;
-			    3'b011 : data_out = byte3;
-			    3'b100 : data_out = byte4;
-			    3'b101 : data_out = byte5;
-			    3'b110 : data_out = byte6;
-			    3'b111 : data_out = byte7;
-			endcase
-
-			rd_addr <= rd_addr + 1;
-			end
-
-	else		begin 
-			rd_addr  <= rd_addr;
-			data_out <= data_out;
-			end
-			
+	if(!reset_n)	rd_addr <= '0;
+	else if(rd)	rd_addr <= rd_addr + 1;
+	else		rd_addr <= rd_addr;
 end
 
+
+//always pass through currently selected read data to output
+always_comb 
+begin
+	if(!reset_n) data_out <= byte0;
+
+	else		begin
+			unique case (rd_addr[2:0])
+			    3'b000 : data_out <= byte0;
+			    3'b001 : data_out <= byte1;
+			    3'b010 : data_out <= byte2;
+			    3'b011 : data_out <= byte3;
+			    3'b100 : data_out <= byte4;
+			    3'b101 : data_out <= byte5;
+			    3'b110 : data_out <= byte6;
+			    3'b111 : data_out <= byte7;
+			endcase
+			end
+end
 
 //full and empty flag logic
 always_comb  
