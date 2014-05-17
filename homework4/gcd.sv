@@ -33,9 +33,9 @@ module gcd(	input [31:0] a_in,		//operand a
 			} reg_b_sel;
 
 	enum reg [1:0]  {
-			idle	= 2'b00;
-			run	= 2'b01;
-			fin	= 2'b10;
+			idle	= 2'b00,
+			run	= 2'b01,
+			fin	= 2'b10,
 			gcd_xx	= 'x
 			} gcd_ns, gcd_ps;
 
@@ -95,9 +95,9 @@ begin
 			end
 
 			run  :  begin
-				if(a_lt_b)	gcd_ns = run;
-				else if(b != 0) gcd_ns = run;
-				else		gcd_ns = fin;
+				if(a_lt_b)		gcd_ns = run;
+				else if(reg_b != 0)	gcd_ns = run;
+				else			gcd_ns = fin;
 			end
 
 			fin  :	gcd_ns = idle; 
@@ -143,7 +143,7 @@ begin
 					reg_b_sel = swap_from_a;
 				end
 
-				else if(b != 0) begin
+				else if(reg_b != 0) begin
 					reg_a_sel = load_a_minus_b;
 					reg_b_sel = hold_b;
 				end
