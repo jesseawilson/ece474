@@ -1,0 +1,36 @@
+# vsim -do gcd.do -c gcdtb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.gcdtb(fast)
+# ** Warning: (vsim-PLI-3691) gcdtb.sv(89): Expected a system task, not a system function '$fscanf'.
+#         Region: /gcdtb/calc
+# ** Warning: (vsim-PLI-3691) gcdtb.sv(90): Expected a system task, not a system function '$fscanf'.
+#         Region: /gcdtb/calc
+# do gcd.do 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "input_data" for reading.
+# No such file or directory. (errno = ENOENT)    : gcdtb.sv(72)
+#    Time: 0 ns  Iteration: 0  Instance: /gcdtb
+# ERROR : CAN NOT OPEN input_file
+# ** Error: (vsim-PLI-3084) gcdtb.sv(89): $fscanf : Argument 1 is not a valid file descriptor.
+#         Region: /gcdtb
+# ** Error: (vsim-PLI-3084) gcdtb.sv(90): $fscanf : Argument 1 is not a valid file descriptor.
+#         Region: /gcdtb
+# =================
+# Starting...
+# a_in: xxxxxxxx
+# b_in: xxxxxxxx
+# done=0
+# result: xxxxxxxx
+# =================
+# ** Note: $finish    : gcdtb.sv(45)
+#    Time: 270 ns  Iteration: 0  Instance: /gcdtb
