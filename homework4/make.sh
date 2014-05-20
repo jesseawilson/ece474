@@ -8,11 +8,18 @@
 #Run this file with ./make.sh
 
 
-SRC_FILE="src/gcd"
+SRC_FILE=$1
 
-TB_FILE="gcdtb"
+TB_FILE="tb"
 
 NAME=`echo "$SRC_FILE" | awk -F '/' '{print $NF}'`
+
+if [ -z "$1" ]
+then
+	echo "*** No source name supplied ***"
+	echo "*** Please Supply source without extension ***"
+	exit
+fi
 
 echo 
 echo "****************************"
@@ -92,8 +99,12 @@ fi
 
 
 # gate results
-if [ $1=="gate" ]
+if [ "$2" = "gate" ]
 then
+
+	echo
+	echo "*** Synthesizing Gate Logic ***"
+	echo
 
 	# synthesize module
 	if [ -s "syn_$NAME" ]  
@@ -171,7 +182,11 @@ then
 		fi
 	fi
 
+else
+	echo
+	echo "*** Skipping Gate Logic ***"
 fi
+
 
 echo
 echo "*************************"
