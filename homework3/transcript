@@ -1,0 +1,229 @@
+# vsim -c tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb(fast)
+# ** Warning: (vsim-PLI-3691) tb.sv(98): Expected a system task, not a system function '$fscanf'.
+#         Region: /tb/wrstim
+# ** Warning: (vsim-8315) src/fifo.sv(83): No condition is true in the unique/priority if/case statement.
+# =====================
+# wrote: 00
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 11
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 22
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 33
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 44
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 55
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 66
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 77
+# empty=0, full=1
+# =====================
+# =====================
+# read: 00 
+# empty=0 full=0
+# =====================
+# read: 11 
+# empty=0 full=0
+# =====================
+# read: 22 
+# empty=0 full=0
+# =====================
+# read: 33 
+# empty=0 full=0
+# =====================
+# read: 44 
+# empty=0 full=0
+# =====================
+# read: 55 
+# empty=0 full=0
+# =====================
+# read: 66 
+# empty=0 full=0
+# =====================
+# read: 77 
+# empty=1 full=0
+# =====================
+# wrote: 88
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 99
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: aa
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: bb
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: cc
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: dd
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: ee
+# empty=0, full=0
+# =====================
+# =====================
+# read: 88 
+# empty=0 full=0
+# =====================
+# read: 99 
+# empty=0 full=0
+# =====================
+# read: aa 
+# empty=0 full=0
+# =====================
+# read: bb 
+# empty=0 full=0
+# =====================
+# read: cc 
+# empty=0 full=0
+# =====================
+# read: dd 
+# empty=0 full=0
+# =====================
+# read: ee 
+# empty=1 full=0
+# =====================
+# wrote: ff
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 01
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 02
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 04
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 08
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 10
+# empty=0, full=0
+# =====================
+# =====================
+# read: ff 
+# empty=0 full=0
+# =====================
+# read: 01 
+# empty=0 full=0
+# =====================
+# read: 02 
+# empty=0 full=0
+# =====================
+# read: 04 
+# empty=0 full=0
+# =====================
+# read: 08 
+# empty=0 full=0
+# =====================
+# read: 10 
+# empty=1 full=0
+# =====================
+# wrote: 20
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 40
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 80
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: fe
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: fb
+# empty=0, full=0
+# =====================
+# =====================
+# read: 20 
+# empty=0 full=0
+# =====================
+# read: 40 
+# empty=0 full=0
+# =====================
+# read: 80 
+# empty=0 full=0
+# =====================
+# read: fe 
+# empty=0 full=0
+# =====================
+# read: fb 
+# empty=1 full=0
+# =====================
+# wrote: f7
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: ef
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: bf
+# empty=0, full=0
+# =====================
+# =====================
+# wrote: 7f
+# empty=0, full=0
+# =====================
+# =====================
+# read: f7 
+# empty=0 full=0
+# =====================
+# read: ef 
+# empty=0 full=0
+# =====================
+# read: bf 
+# empty=0 full=0
+# =====================
+# read: 7f 
+# empty=1 full=0
+# ** Note: $finish    : tb.sv(54)
+#    Time: 3030 ns  Iteration: 1  Instance: /tb
