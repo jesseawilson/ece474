@@ -77,7 +77,7 @@ end
 //always pass through currently selected read data to output
 always_comb 
 begin
-	if(!reset_n) data_out = byte0;
+	if(!reset_n)	data_out = byte0;
 
 	else		begin
 			unique case (rd_addr[2:0])
@@ -92,6 +92,7 @@ begin
 			endcase
 			end
 end
+
 
 //full and empty flag logic
 always_comb  
