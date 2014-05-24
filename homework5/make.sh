@@ -8,48 +8,79 @@
 #Run this file with ./make.sh
 
 
-SRC_FILE=$1
+SRC_FILE="rtl_src/gcd"
 
-TB_FILE="tb"
+TB_FILE="tb_src/tb"
 
 NAME=`echo "$SRC_FILE" | awk -F '/' '{print $NF}'`
-
-if [ -z "$1" ]
-then
-	echo "*** No source name supplied ***"
-	echo "*** Please Supply source without extension ***"
-	exit
-fi
 
 echo 
 echo "****************************"
 echo "*** BEGINNING SIMULATION ***"
 echo "****************************"
 
-# create work director
+
+# remove old results if they exist
+if [ -s "vectors/outout_data_rtl" ]
+then
+	rm -f vectors/output_data_rtl
+fi
+if [ -s "vectors/output_data_gate" ]
+then
+	rm -f vectors/output_data_gate
+fi
+if [ -s "vectors/output_data_gate_sdf" ]
+then
+	rm -f vectors/output_data_gate_sdf
+fi
+if [ -s "reports" ] 
+then
+	rm -r -f reports/
+fi
+
+
+# create work directory
 if [ ! -d "work" ]  
 then 
-	echo  
-	echo "*** work directory does not exist.. making it ***"
-	echo
 	vlib work
 fi
 
-# remove old results if they exist
-if [ -s "rtl_results.txt" ]
+# create standard directories
+if [ ! -s "vectors" ]
 then
-	rm -f rtl_results.txt
+	mkdir vectors
 fi
-if [ -s "gate_results.txt" ]
-then
-	rm -f gate_results.txt
+if [ ! -s "bin" ] 
+then 
+	mkdir bin
 fi
-if [ -s "$NAME.list" ]
+if [ ! -s "logs" ]
 then
-	rm -f $NAME.list
+	mkdir logs
+fi
+if [ ! -s "reports" ] 
+then
+	mkdir reports
+fi
+if [ ! -s "rtl_src" ] 
+then
+	mkdir rtl_src
+fi
+if [ ! -s "tb_src" ] 
+then
+	mkdir tb_src
+fi
+if [ ! -s "sdfout" ]
+then
+	mkdir sdfout
+fi
+if [ ! -s "vlogout" ]
+then
+	mkdir vlogout
 fi
 
-# compile all sv files
+
+# compile source sv file
 if [ -s "$SRC_FILE.sv" ]  
 then
 	echo 
@@ -59,7 +90,7 @@ then
 
 	if [ $? != 0 ]
 	then
-		echo "*** Compiling FAILED ***"
+		echo "*** Compiling $SRC_FILE.sv FAILED ***"
 		exit
 	fi 
 	else
@@ -67,6 +98,8 @@ then
 		exit
 fi
 
+
+# compile test bench sv file
 if [ -s "$TB_FILE.sv" ]
 then 
 	echo
@@ -76,7 +109,7 @@ then
 
 	if [ $? != 0 ]
 	then
-		echo "*** Compiling FAILED ***"
+		echo "*** Compiling $TB_FILE.sv FAILED ***"
 		exit
 	fi
 	else
@@ -84,103 +117,127 @@ then
 		exit
 fi
 
-# simulate sv level
+
+# simulate rtl level
 if [ -s "$NAME.do" ]  
 then
 	echo 
 	echo "*** Simulating $NAME ***"
 	echo
-	vsim $TB_FILE -do $NAME.do -c 
-
+	vsim $TB_FILE -do $NAME.do -quiet -c -t 1ps 
 else
 	echo "*** $NAME.do does not exist, simulating without do file. ***"
-	vsim $TB_FILE -c 
+	vsim $TB_FILE -quiet -c -t 1ps
 fi
 
 
-# gate results
-if [ "$2" = "gate" ]
+# rename the output_data
+if [ -s "output_data" ]
 then
+	mv output_data vectors/output_data_rtl
+else
+	echo "*** output_data does not exist ***"
+	exit
+fi
 
-	echo
-	echo "*** Synthesizing Gate Logic ***"
-	echo
 
-	# synthesize module
-	if [ -s "syn_$NAME" ]  
+# diff output_data and golden_data
+if [ -s "vectors/golden_data" ]
+then
+	echo
+	echo "*** Comparing output_data_rtl with golden_data ***"
+	diff vectors/output_data_rtl vectors/golden_data 
+			> reports/rtl_miscompares
+
+	if [ $? -eq 0 ]
 	then
-		echo 
-		echo "*** Synthesizing $NAME ***"
-		echo
-		dc_shell-xg-t -f syn_$NAME
-	
+		echo "*** diff output_data_rtl golden_data SUCCESS! ***"
 	else
-		echo "*** syn_$NAME script does not exist ***"
+		echo "*** diff output_data_rtl golden_data FAILURE! ***"
+	fi
+else	
+	echo "*** golden_data does not exist ***"
+	exit
+fi
+
+
+# check for compiled libraries, compile if needed
+grep "/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/
+	Digital_Standard_Cell_Library/verilog" work/_info &> /dev/null
+if [ $? -ne 0 ]  
+then
+	echo 
+	echo "*** Compiling Libraries ***"
+	echo
+	./comp_lib.sh
+else
+	echo
+	echo "*** Libraries already compiles ***"
+	echo
+fi
+
+
+# synthesize module
+if [ -s "syn_$NAME" ]  
+then
+	echo 
+	echo "*** Synthesizing $NAME ***"
+	echo
+	dc_shell-xg-t -f bin/dc_syn
+	
+else
+	echo "*** syn_$NAME script does not exist ***"
+	exit
+fi
+
+
+# check for gate file
+if [ -s "$NAME.gate.v" ] 
+then
+	echo 
+	echo "*** Compiling $NAME gates ***"
+	echo
+	vlog $NAME.gate.v
+
+	if [ $? != 0 ]
+	then
+		echo "*** Could Not Compile $SRC_FILE.gate.v ***"
 		exit
 	fi
-	
-	# check for compiled libraries
-	grep "/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/
-		Digital_Standard_Cell_Library/verilog" work/_info &> /dev/null
-	if [ $? -ne 0 ]  
-	then
-		echo 
-		echo "*** Compiling Libraries ***"
-		echo
-		./comp_lib.sh
+
 	else
-		echo
-		echo "*** Libraries already compiles ***"
-		echo
-	fi
-	
-	# check for gate file
-	if [ -s "$NAME.gate.v" ] 
-	then
-		echo 
-		echo "*** Compiling $NAME gates ***"
-		echo
-		vlog $NAME.gate.v
-	
-		if [ $? != 0 ]
-		then
-			echo "*** Could Not Compile $SRC_FILE.gate.v ***"
-			exit
-		fi
-	
-		else
-			echo "*** $NAME gate file not found ***"
-			exit
-	fi
-	
-	# simulate gate level
-	if [ -s "$NAME.do" ] 
-	then
-		echo 
-		echo "*** Simulating $NAME with gates ***"
-		echo
-		vsim $NAME -do $NAME.do -quiet -c -t 1ps
-		cp $NAME.list gate_results.txt
-	else
-		echo "*** $NAME.do does not exist ***"
+		echo "*** $NAME gate file not found ***"
 		exit
-	fi
-	
-	# diff results
-	if [ -s "rtl_results.txt" ] && [ -s "gate_results.txt" ] 
+fi
+
+# simulate gate level
+if [ -s "$NAME.do" ] 
+then
+	echo 
+	echo "*** Simulating $NAME with gates ***"
+	echo
+	vsim $NAME -do $NAME.do -quiet -c -t 1ps
+	cp $NAME.list gate_results.txt
+else
+	echo "*** $NAME.do does not exist ***"
+	exit
+fi
+
+# diff results
+if [ -s "rtl_results.txt" ] && [ -s "gate_results.txt" ] 
+then
+	echo 
+	echo "*** Comparing files ***"
+	echo
+	diff rtl_results.txt gate_results.txt
+
+	if [ $? -eq 0 ]
 	then
-		echo 
-		echo "*** Comparing files ***"
-		echo
-		diff rtl_results.txt gate_results.txt
-	
-		if [ $? -eq 0 ]
-		then
-			echo "*** Output files identical. SUCCESS! ***"
-		else
-			echo "*** Output files NOT identical. FAILURE! ***"
-		fi
+		echo "*** Output files identical. SUCCESS! ***"
+	else
+		echo "*** Output files NOT identical. FAILURE! ***"
 	fi
+fi
 
 else
 	echo
