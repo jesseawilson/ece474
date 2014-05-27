@@ -1,0 +1,82 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : gcd
+Version: E-2010.12-SP2
+Date   : Mon May 26 20:15:17 2014
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: top
+
+  Startpoint: reg_b_reg[17]
+              (rising edge-triggered flip-flop clocked by my_clock)
+  Endpoint: reg_a_reg[3]
+            (rising edge-triggered flip-flop clocked by my_clock)
+  Path Group: my_clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  gcd                8000                  saed90nm_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock my_clock (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  reg_b_reg[17]/CLK (DFFARX1)              0.00       0.00 r
+  reg_b_reg[17]/Q (DFFARX1)                0.30       0.30 f
+  U312/Q (AO21X1)                          0.13       0.43 f
+  U258/QN (NAND2X2)                        0.03       0.46 r
+  U279/QN (NAND2X2)                        0.04       0.50 f
+  U711/Q (AO22X1)                          0.15       0.65 f
+  U259/QN (NAND2X2)                        0.03       0.68 r
+  U286/QN (NAND2X2)                        0.04       0.72 f
+  U285/QN (INVX2)                          0.04       0.76 r
+  U205/QN (NAND2X2)                        0.04       0.79 f
+  U725/QN (NAND2X4)                        0.02       0.82 r
+  U726/QN (NOR2X4)                         0.03       0.84 f
+  U728/QN (NOR2X4)                         0.03       0.87 r
+  U729/QN (NOR2X4)                         0.03       0.91 f
+  U208/QN (INVX2)                          0.03       0.93 r
+  U730/QN (NAND2X4)                        0.02       0.96 f
+  U355/QN (NAND2X4)                        0.03       0.98 r
+  U256/QN (NAND2X4)                        0.03       1.02 f
+  U168/QN (NAND2X4)                        0.03       1.04 r
+  U264/QN (NAND2X4)                        0.03       1.08 f
+  U337/QN (NOR2X4)                         0.03       1.10 r
+  U731/QN (NOR2X4)                         0.04       1.14 f
+  U178/QN (INVX4)                          0.02       1.16 r
+  U732/QN (NAND2X4)                        0.02       1.19 f
+  U352/QN (NAND2X4)                        0.03       1.22 r
+  U263/QN (NAND2X4)                        0.03       1.25 f
+  U308/QN (NAND2X4)                        0.03       1.28 r
+  U257/QN (NAND2X4)                        0.03       1.31 f
+  U309/QN (NAND2X4)                        0.03       1.33 r
+  U733/QN (OAI21X2)                        0.14       1.47 f
+  U712/QN (INVX4)                          0.03       1.50 r
+  U348/QN (NOR2X4)                         0.05       1.55 f
+  U347/QN (INVX8)                          0.04       1.59 r
+  U363/QN (INVX32)                         0.05       1.64 f
+  U714/Q (AO22X1)                          0.14       1.77 f
+  U713/Q (AO221X1)                         0.12       1.89 f
+  reg_a_reg[3]/D (DFFARX1)                 0.00       1.89 f
+  data arrival time                                   1.89
+
+  clock my_clock (rise edge)               2.00       2.00
+  clock network delay (ideal)              0.00       2.00
+  clock uncertainty                       -0.02       1.98
+  reg_a_reg[3]/CLK (DFFARX1)               0.00       1.98 r
+  library setup time                      -0.09       1.89
+  data required time                                  1.89
+  -----------------------------------------------------------
+  data required time                                  1.89
+  data arrival time                                  -1.89
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1

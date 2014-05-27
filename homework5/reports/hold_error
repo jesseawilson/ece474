@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : gcd
+Version: E-2010.12-SP2
+Date   : Mon May 26 20:15:17 2014
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: top
+
+  Startpoint: result_reg[0]
+              (rising edge-triggered flip-flop clocked by my_clock)
+  Endpoint: result[0] (output port clocked by my_clock)
+  Path Group: my_clock
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  gcd                8000                  saed90nm_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock my_clock (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  result_reg[0]/CLK (DFFARX1)              0.00       0.00 r
+  result_reg[0]/Q (DFFARX1)                0.25       0.25 r
+  result[0] (out)                          0.00       0.25 r
+  data arrival time                                   0.25
+
+  clock my_clock (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.02       0.02
+  output external delay                    0.15       0.17
+  data required time                                  0.17
+  -----------------------------------------------------------
+  data required time                                  0.17
+  data arrival time                                  -0.25
+  -----------------------------------------------------------
+  slack (MET)                                         0.08
+
+
+1

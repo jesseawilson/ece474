@@ -1,0 +1,323 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+           Version E-2010.12-SP2 for linux -- Feb 25, 2011
+               Copyright (c) 1988-2011 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+#synopsys synthesis script
+#boilerplate
+set hdlin_auto_save_templates true
+true
+set hdlin_check_no_latch      true
+true
+read_sverilog  rtl_src/gcd.sv 
+Loading db file '/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db'
+Loading db file '/usr/local/apps/synopsys/current_synthesis/libraries/syn/gtech.db'
+Loading db file '/usr/local/apps/synopsys/current_synthesis/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_typ'
+  Loading link library 'gtech'
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv
+Warning:  /nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv:69: Case statement marked unique does not cover all possible conditions. (VER-504)
+
+Statistics for case statements in always block at line 46 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            52            |    user/user     |
+===============================================
+Warning:  /nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv:69: Case statement marked unique does not cover all possible conditions. (VER-504)
+
+Statistics for case statements in always block at line 63 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            69            |    user/user     |
+===============================================
+
+Statistics for case statements in always block at line 79 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            85            |    user/user     |
+===============================================
+
+Statistics for case statements in always block at line 118 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           122            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 140 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           146            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine gcd line 46 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      reg_a_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine gcd line 63 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      reg_b_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine gcd line 79 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     result_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine gcd line 94 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     gcd_ps_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.db:gcd'
+Loaded 1 design.
+Current design is 'gcd'.
+gcd
+current_design gcd 
+Current design is 'gcd'.
+{gcd}
+link
+
+  Linking design 'gcd'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  gcd                         /nfs/stak/students/w/wilsonj/ECE474/homework5/rtl_src/gcd.db
+  saed90nm_typ (library)      /nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db
+
+1
+##### constraints are below #####
+#erase all attributes and constrains from the current design
+reset_design
+1
+#set the environmental conditons to TYPICAL
+set_operating_conditions -max TYPICAL
+Using operating conditions 'TYPICAL' found in library 'saed90nm_typ'.
+1
+#set wire loading model to 8000
+set_wire_load_model -name 8000
+1
+#set wire loading mode to top  
+set_wire_load_mode top 
+1
+# Define the clock period as 2ns and clock port (2ns clock period)
+# Give the clock the name "my_clock"
+create_clock -period 2 -name my_clock  [get_ports clk]
+1
+# Set the clock uncertainty relative to my_clock as +/- 20pS
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock]
+1
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock]
+1
+# set the "input valid" delay to 1.0nS
+# exclude clock from the inputs expecting the delay
+set_input_delay 1.0 -max -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
+1
+# set the setup time requirements for the next block to 1nS
+# exclude clock from the inputs expecting the delay
+set_output_delay 1 -max -clock my_clock [all_outputs]
+1
+#The next two are hard to get right, so I'll be nice!
+#set the fastest input data arrival time to check for hold time changes to 100pS
+set_input_delay -min 0.100 -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
+1
+# set the hold time requirements for the next block to 150pS
+set_output_delay -min -0.150 -clock my_clock [all_outputs]
+1
+# Indicate the drive characteristics of what drives the inputs:
+# Use SDFFARX1 as the driving cell
+set_driving_cell -lib_cell SDFFARX1 [remove_from_collection [all_inputs] [get_ports clk]]
+1
+# Indicate the capacitive loading on the outputs equal to 5 inv_2 inverter inputs.
+set_load [expr 5 * [load_of saed90nm_typ/INVX1/IN]] [all_outputs]
+1
+# Compile with completely disolved design
+compile -ungroup_all
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | E-2010.12-DWBB_201012.2 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 1 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'gcd'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Total 0 isolation cells are inserted. (UPF-214)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'DW01_sub_width32'
+  Processing 'DW01_cmp2_width32'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06   16070.7      0.72      46.3       0.0                          
+    0:00:06   16039.2      0.72      46.1       0.0                          
+    0:00:06   16039.2      0.72      46.1       0.0                          
+    0:00:06   16035.5      0.71      46.1       0.0                          
+    0:00:06   16035.5      0.71      46.1       0.0                          
+    0:00:06    8996.2      4.92     278.9       0.0                          
+    0:00:07    9121.4      3.08     160.3       0.0                          
+    0:00:07    9115.1      2.96     150.4       0.0                          
+    0:00:07    9099.2      1.59      97.1       0.0                          
+    0:00:07    9124.9      1.03      62.1       0.0                          
+    0:00:07    9151.2      0.97      59.8       0.0                          
+    0:00:07    9177.6      0.96      56.8       0.0                          
+    0:00:07    9232.2      0.88      52.3       0.0                          
+    0:00:07    9243.4      0.98      50.0       0.0                          
+    0:00:07    9269.7      0.84      47.5       0.0                          
+    0:00:07    9271.5      0.78      43.2       0.0                          
+    0:00:07    9311.9      0.76      42.8       0.0                          
+    0:00:07    9364.8      0.70      39.5       0.0                          
+    0:00:07    9406.8      0.69      37.5       0.0                          
+    0:00:07    9497.7      0.59      32.4       0.0                          
+    0:00:07    9497.0      0.58      32.3       0.0                          
+    0:00:07    9523.4      0.54      30.0       0.0                          
+    0:00:07    9608.6      0.50      29.2       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9618.5      0.50      28.9       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07    9618.5      0.50      28.9       0.0                          
+    0:00:07    9666.5      0.41      23.4       0.0 reg_a_reg[24]/D          
+    0:00:08    9842.3      0.31      16.9       0.0 reg_a_reg[15]/D          
+    0:00:08    9971.6      0.27      14.6       0.0 reg_a_reg[15]/D          
+    0:00:08   10061.6      0.26      13.8       0.0 reg_a_reg[27]/D          
+    0:00:08   10175.8      0.12       5.4       0.0 reg_a_reg[27]/D          
+    0:00:08   10244.5      0.10       3.9       0.0 reg_a_reg[24]/D          
+    0:00:08   10336.7      0.03       0.8       0.0 reg_a_reg[27]/D          
+    0:00:08   10403.6      0.03       0.8       0.0 reg_a_reg[27]/D          
+    0:00:08   10436.1      0.03       0.7       0.0 reg_a_reg[27]/D          
+    0:00:08   10427.2      0.00       0.0       0.0 reg_a_reg[27]/D          
+    0:00:08   10427.2      0.00       0.0       0.0                          
+    0:00:09   10258.8      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:09   10258.8      0.00       0.0       0.0                          
+    0:00:09   10258.8      0.00       0.0       0.0                          
+    0:00:09    9484.4      0.06       2.7       0.0                          
+    0:00:09    9421.8      0.06       2.6       0.0                          
+    0:00:09    9402.2      0.06       2.6       0.0                          
+    0:00:09    9396.6      0.06       2.6       0.0                          
+    0:00:09    9390.9      0.06       2.6       0.0                          
+    0:00:09    9390.9      0.06       2.6       0.0                          
+    0:00:09    9407.9      0.00       0.0       0.0                          
+    0:00:09    9022.4      0.08       3.0       0.0                          
+    0:00:09    8981.8      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    8976.1      0.08       3.0       0.0                          
+    0:00:09    9096.9      0.00       0.0       0.0                          
+Loading db file '/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db'
+
+  Optimization Complete
+  ---------------------
+1
+# Make sure we are at the top level
+set current_design  gcd 
+gcd
+# Generate area and constraints reports on the optimized design
+report_area    > reports/area
+# Generate timing report for worst case path
+report_timing  > reports/delay
+# Generate timing report for hold time 
+#report_timing -delay max > reports/setup_error
+report_timing -delay min > reports/hold_error
+# Find what cells were used to check for latches
+report_hierarchy -full  -nosplit  > reports/cells_used
+#run a design check
+check_design > reports/check_design  
+# Save the optimized design
+write -format verilog -hierarchy -output  vlogout/gcd.gate.v
+Writing verilog file '/nfs/stak/students/w/wilsonj/ECE474/homework5/vlogout/gcd.gate.v'.
+1
+write_sdf sdfout/gcd.gate.sdf -context verilog
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/nfs/stak/students/w/wilsonj/ECE474/homework5/sdfout/gcd.gate.sdf'. (WT-3)
+1
+quit
+Information: Defining new variable 'compile_group_pull_control_logic'. (CMD-041)
+
+Thank you...

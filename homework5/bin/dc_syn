@@ -15,44 +15,43 @@ link
 reset_design
 
 #set the environmental conditons to TYPICAL
-##set_operating_conditions........ 
+set_operating_conditions -max TYPICAL
 
 #set wire loading model to 8000
-##set_wire_load_model ........
+set_wire_load_model -name 8000
 
 #set wire loading mode to top  
 set_wire_load_mode top 
 
 # Define the clock period as 2ns and clock port (2ns clock period)
 # Give the clock the name "my_clock"
-##create_clock 
+create_clock -period 2 -name my_clock  [get_ports clk]
 
 # Set the clock uncertainty relative to my_clock as +/- 20pS
-##set_clock_uncertainty 
-##set_clock_uncertainty
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock]
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock]
 
 # set the "input valid" delay to 1.0nS
 # exclude clock from the inputs expecting the delay
-##set_input_delay  
+set_input_delay 1.0 -max -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
 
 # set the setup time requirements for the next block to 1nS
 # exclude clock from the inputs expecting the delay
-##set_output_delay 
+set_output_delay 1 -max -clock my_clock [all_outputs]
 
 #The next two are hard to get right, so I'll be nice!
 #set the fastest input data arrival time to check for hold time changes to 100pS
 set_input_delay -min 0.100 -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
 
 # set the hold time requirements for the next block to 150pS
-set_output_delay -min -0.150  -clock my_clk [all_outputs]
+set_output_delay -min -0.150 -clock my_clock [all_outputs]
 
 # Indicate the drive characteristics of what drives the inputs:
 # Use SDFFARX1 as the driving cell
-##set_driving_cell 
+set_driving_cell -lib_cell SDFFARX1 [remove_from_collection [all_inputs] [get_ports clk]]
 
 # Indicate the capacitive loading on the outputs equal to 5 inv_2 inverter inputs.
-##set_load 
-
+set_load [expr 5 * [load_of saed90nm_typ/INVX1/IN]] [all_outputs]
 # Compile with completely disolved design
 compile -ungroup_all
 
@@ -63,18 +62,20 @@ set current_design  gcd
 report_area    > reports/area
 
 # Generate timing report for worst case path
-##report_timing 
+report_timing  > reports/delay
 
 # Generate timing report for hold time 
-##report_timing 
+#report_timing -delay max > reports/setup_error
+report_timing -delay min > reports/hold_error
 
 # Find what cells were used to check for latches
 report_hierarchy -full  -nosplit  > reports/cells_used
 
 #run a design check
-##check_design 
+check_design > reports/check_design  
 
 # Save the optimized design
 write -format verilog -hierarchy -output  vlogout/gcd.gate.v
 write_sdf sdfout/gcd.gate.sdf -context verilog
 quit
+

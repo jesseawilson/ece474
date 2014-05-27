@@ -1,0 +1,59 @@
+ 
+****************************************
+Report : hierarchy
+        -full
+Design : gcd
+Version: E-2010.12-SP2
+Date   : Mon May 26 20:15:17 2014
+****************************************
+
+gcd
+    AND2X1           saed90nm_typ
+    AND2X2           saed90nm_typ
+    AND2X4           saed90nm_typ
+    AND3X1           saed90nm_typ
+    AND3X2           saed90nm_typ
+    AO21X1           saed90nm_typ
+    AO22X1           saed90nm_typ
+    AO221X1          saed90nm_typ
+    AO222X1          saed90nm_typ
+    AOI22X1          saed90nm_typ
+    DELLN3X2         saed90nm_typ
+    DFFARX1          saed90nm_typ
+    DFFARX2          saed90nm_typ
+    IBUFFX16         saed90nm_typ
+    INVX0            saed90nm_typ
+    INVX1            saed90nm_typ
+    INVX2            saed90nm_typ
+    INVX4            saed90nm_typ
+    INVX8            saed90nm_typ
+    INVX16           saed90nm_typ
+    INVX32           saed90nm_typ
+    MUX21X1          saed90nm_typ
+    NAND2X0          saed90nm_typ
+    NAND2X1          saed90nm_typ
+    NAND2X2          saed90nm_typ
+    NAND2X4          saed90nm_typ
+    NAND3X0          saed90nm_typ
+    NBUFFX2          saed90nm_typ
+    NBUFFX8          saed90nm_typ
+    NOR2X0           saed90nm_typ
+    NOR2X1           saed90nm_typ
+    NOR2X2           saed90nm_typ
+    NOR2X4           saed90nm_typ
+    NOR4X0           saed90nm_typ
+    OA21X1           saed90nm_typ
+    OA21X2           saed90nm_typ
+    OAI21X1          saed90nm_typ
+    OAI21X2          saed90nm_typ
+    OR2X1            saed90nm_typ
+    OR2X2            saed90nm_typ
+    OR2X4            saed90nm_typ
+    OR3X1            saed90nm_typ
+    OR4X1            saed90nm_typ
+    OR4X2            saed90nm_typ
+    OR4X4            saed90nm_typ
+    XOR2X1           saed90nm_typ
+    XOR3X1           saed90nm_typ
+    XOR3X2           saed90nm_typ
+1
