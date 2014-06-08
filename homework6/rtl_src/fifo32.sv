@@ -1,10 +1,10 @@
 /********************************************************************
-Name: fifo.sv
+Name: fifo32.sv
 Author: Jesse Wilson
-ECE 474 Homework 3
+ECE 474 Homework 6
 ********************************************************************/
 
-module fifo ( 
+module fifo32 ( 
 	input            wr_clk,   //write clock
 	input            rd_clk,   //read clock
 	input            reset_n,  //reset async active low
@@ -53,11 +53,13 @@ module fifo (
 	reg	[7:0]	byte31;
 
 
+//write address control logic
 always_ff @(posedge wr_clk, negedge reset_n)
 begin
 	if(!reset_n)	wr_addr <= '0;
 	else if(wr)	wr_addr <= wr_addr + 1;
 end
+
 
 //write to memory logic
 always_ff @(posedge wr_clk, negedge reset_n)  
