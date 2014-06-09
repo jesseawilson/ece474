@@ -9,7 +9,7 @@ module ctrl_50mhz (
 	input		reset_n,
 	input		serial_en,
 	input		A5_or_C3,
-	output		write
+	output reg	write
 	);
 
 
@@ -107,7 +107,7 @@ begin
 
 	case(write_fifo_ps)
 		no_write_fifo :	begin
-				if(comp_byte_ns == complete_byte &&
+				if(comp_byte_ns == complete &&
 				   write_byte_ps != header &&
 				   temp_pkt_ps == temp_pkt)
 						write_fifo_ns = write_fifo;
@@ -132,31 +132,31 @@ begin
 
 	case(write_byte_ps)
 		header       :	begin
-				if(comp_byte_ns == complete_byte)
+				if(comp_byte_ns == complete)
 						write_byte_ns = byte1;
 				else		write_byte_ns = header;
 		end
 
 		byte1        :	begin
-				if(comp_byte_ns == complete_byte)
+				if(comp_byte_ns == complete)
 						write_byte_ns = byte2;
 				else		write_byte_ns = byte1;
 		end
 
 		byte2        :	begin
-				if(comp_byte_ns == complete_byte)
+				if(comp_byte_ns == complete)
 						write_byte_ns = byte3;
 				else		write_byte_ns = byte2;
 		end
 
 		byte3        :	begin
-				if(comp_byte_ns == complete_byte)
+				if(comp_byte_ns == complete)
 						write_byte_ns = byte4;
 				else		write_byte_ns = byte3;
 		end
 
 		byte4        :	begin
-				if(comp_byte_ns == complete_byte)
+				if(comp_byte_ns == complete)
 						write_byte_ns = header;
 				else		write_byte_ns = byte4;
 		end

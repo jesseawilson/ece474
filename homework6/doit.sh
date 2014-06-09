@@ -1,18 +1,14 @@
 #/bin/bash
 
-#Place the rtl_src/name of the source sv file (w/o extension) in SRC_FILE below.
+#Provide name of project to be used in naming output files below.
 #Name the do file "dofile"
 #Name the synthesis file "dc_syn"
 #Move the comp_lib.sh file into directory
 #Move the .synopsys_dc.setup file into directory
-#Run this file with ./make.sh
+#Run this file with ./doit.sh
 
 
-SRC_FILE="rtl_src/temp"
-SEC_FILE="rtl_src/fifo"
-TB_FILE="tb_src/tb"
-
-NAME=`echo "$SRC_FILE" | awk -F '/' '{print $NF}'`
+NAME="tas"
 
 echo
 echo
@@ -104,75 +100,44 @@ echo "***********************"
 echo "*** COMPILING FILES ***"
 echo "***********************"
 echo
-# compile golden code to get golden data
-if [ -e "golden_src/golden_code.c" ]
-then
-	if [ ! -e "golden_code" ] 
+
+
+# compile source sv files
+for SRC_FILE in rtl_src/*
+do
+	
+	if [ -s "$SRC_FILE" ]  
 	then
 		echo
-		echo "COMPILING golden_code.c"
-		gcc -o golden_code golden_src/golden_code.c
+		echo "COMPILING $SRC_FILE"
+		vlog $SRC_FILE
+	
+		if [ $? != 0 ]
+		then
+			echo "ERROR: COMPILING $SRC_FILE FAILED"
+			exit
+		fi 
+		else
+			echo "ERROR: $SRC_FILE DOES NOT EXIST"
+			exit
 	fi
-
-	if [ ! -e "vectors/golden_data" ]
-	then
-		echo
-		echo "RUNNING golden_code"
-		./golden_code
-	fi
-fi
-
-
-# compile source sv file
-if [ -s "$SRC_FILE.sv" ]  
-then
-	echo
-	echo "COMPILING $SRC_FILE.sv"
-	vlog $SRC_FILE.sv
-
-	if [ $? != 0 ]
-	then
-		echo "ERROR: COMPILING $SRC_FILE.sv FAILED"
-		exit
-	fi 
-	else
-		echo "ERROR: $SRC_FILE.sv DOES NOT EXIST"
-		exit
-fi
-
-
-# compile secondary file sv file
-if [ -s "$SEC_FILE.sv" ]  
-then
-	echo
-	echo "COMPILING $SEC_FILE.sv"
-	vlog $SRC_FILE.sv
-
-	if [ $? != 0 ]
-	then
-		echo "ERROR: COMPILING $SEC_FILE.sv FAILED"
-		exit
-	fi 
-	else
-		echo "ERROR: $SEC_FILE.sv DOES NOT EXIST"
-		exit
-fi
+done
 
 
 # compile test bench sv file
-if [ -s "$TB_FILE.sv" ]
+if [ -s "tb_src/tb.sv" ]
 then 
 	echo
-	echo "COMPILING $TB_FILE.sv"
-	vlog $TB_FILE.sv
+	echo "COMPILING tb.sv"
+	vlog tb_src/tb.sv
 
 	if [ $? != 0 ]
 	then
-		echo "ERROR: COMPILING $TB_FILE.sv FAILED"
+		echo "ERROR: COMPILING tb.sv FAILED"
 		exit
 	fi
 	else
-		echo "ERROR: $TB_FILE.sv DOES NOT EXIST"
+		echo "ERROR: tb.sv DOES NOT EXIST"
 		exit
 fi
 

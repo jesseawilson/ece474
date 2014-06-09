@@ -8,9 +8,9 @@ module ctrl_2mhz (
 	input		clk,
 	input		reset_n,
 	input		empty,
-	output		read,
-	output		zero_sel,
-	output		write_ram
+	output reg	read,
+	output reg	zero_sel,
+	output reg	write_ram
 	);
 
 	
@@ -37,10 +37,10 @@ module ctrl_2mhz (
 
 	//read_byte reg
 	enum reg [1:0]	{
-			byte1		= 1'b00,
-			byte2		= 1'b01,
-			byte3		= 1'b10,
-			byte4		= 1'b11,
+			byte1		= 2'b00,
+			byte2		= 2'b01,
+			byte3		= 2'b10,
+			byte4		= 2'b11,
 			read_byte_xx	= 'x
 			} read_byte_ps, read_byte_ns;
 
@@ -95,6 +95,7 @@ begin
 				   read_byte_ns == byte1)
 						write_ram_ns = wr_ram;
 				else		write_ram_ns = no_wr_ram;
+		end
 		
 		wr_ram	      :	write_ram_ns = no_wr_ram;
 	endcase
