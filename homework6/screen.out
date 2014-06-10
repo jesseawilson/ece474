@@ -1,0 +1,131 @@
+
+
+***********************************************
+*** B E G I N N I N G   S I M U L A T I O N ***
+***********************************************
+
+
+DELETING OLD FILES
+MAKING reports DIRECTORY
+
+
+***********************
+*** COMPILING FILES ***
+***********************
+
+
+COMPILING rtl_src/averager.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module averager
+
+Top level modules:
+	averager
+
+COMPILING rtl_src/ctrl_2mhz.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module ctrl_2mhz
+
+Top level modules:
+	ctrl_2mhz
+
+COMPILING rtl_src/ctrl_50mhz.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module ctrl_50mhz
+
+Top level modules:
+	ctrl_50mhz
+
+COMPILING rtl_src/fifo32.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module fifo32
+
+Top level modules:
+	fifo32
+
+COMPILING rtl_src/ram_ctr.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module ram_ctr
+** Warning: rtl_src/ram_ctr.sv(18): [RDGN] - Redundant digits in numeric literal.
+** Warning: rtl_src/ram_ctr.sv(20): [RDGN] - Redundant digits in numeric literal.
+** Warning: rtl_src/ram_ctr.sv(21): [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	ram_ctr
+
+COMPILING rtl_src/shift_reg.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module shift_reg
+
+Top level modules:
+	shift_reg
+
+COMPILING rtl_src/tas.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module tas
+
+Top level modules:
+	tas
+
+COMPILING tb.sv
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+
+**********************
+*** RTL SIMULATION ***
+**********************
+
+
+RTL: SIMULATING tas WITH TESTBENCH
+Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl 
+
+# 6.6a
+
+# vsim -do dofile -c -quiet -t 1ps tb 
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do dofile 
+# sending: a5
+# sending: 3a
+# sending: 55
+# sending: 43
+# sending: 3c
+# write to RAM:: address: 7fa  data:  71 
+# 
+# write to RAM:: address: 7f6  data:   0 
+# 
+# sending: a5
+# sending: 0a
+# sending: 14
+# sending: 1e
+# sending: 28
+# write to RAM:: address: 7f3  data:   0 
+# 
+# write to RAM:: address: 7f0  data:   0 
+# 
+# sending: a5
+# sending: 02
+# write to RAM:: address: 7ed  data:   0 
+# 
+# write to RAM:: address: 7ea  data:   0 
+# 
+# sending: 04
+# write to RAM:: address: 7e7  data:   0 
+# 
+# write to RAM:: address: 7e4  data:   0 
+# 
+
+RTL: COMPARING output_data_rtl WITH golden_data...
+
+RTL: OUTPUT FILES NOT IDENTICAL. FAILURE!

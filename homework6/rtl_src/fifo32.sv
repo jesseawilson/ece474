@@ -149,9 +149,9 @@ end
 //always pass through currently selected read data to output
 always_comb 
 begin
-	data_out = '0;
+	data_out = 'x;
 
-	unique case (rd_addr[4:0])
+	case (rd_addr[4:0])
 	    5'b00000 : data_out = byte00;
 	    5'b00001 : data_out = byte01;
 	    5'b00010 : data_out = byte02;

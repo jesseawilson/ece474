@@ -7,7 +7,7 @@ ECE 474 Homework 6
 module ctrl_2mhz (
 	input		clk,
 	input		reset_n,
-	input		empty,
+	input		fifo_empty,
 	output reg	read,
 	output reg	zero_sel,
 	output reg	write_ram
@@ -30,8 +30,8 @@ module ctrl_2mhz (
 
 	//write_ram reg
 	enum reg	{
-			no_wr_ram	= 1'b0,
-			wr_ram		= 1'b1,
+			no_wr_ram	= 1'b1,
+			wr_ram		= 1'b0,
 			write_ram_xx	= 'x
 			} write_ram_ps, write_ram_ns;
 
@@ -56,7 +56,7 @@ always_comb
 begin
 	read_fifo_ns = read_fifo_xx;
 
-	if(!empty)	read_fifo_ns <= read_fifo;
+	if(!fifo_empty)	read_fifo_ns <= read_fifo;
 	else		read_fifo_ns <= no_read_fifo;
 end
 

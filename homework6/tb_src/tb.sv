@@ -1,4 +1,6 @@
 module tb;
+timeunit 1ns;
+timeprecision 1ps;
 //system verilog testbench for tas
 
 reg serial_data, data_ena, reset_n, clk_50, clk_2;

@@ -1,4 +1,13 @@
-0a1,12
+1,8c1,12
+< ram_addr: 7fa   ram_data:  71 
+< ram_addr: 7f6   ram_data:   0 
+< ram_addr: 7f3   ram_data:   0 
+< ram_addr: 7f0   ram_data:   0 
+< ram_addr: 7ed   ram_data:   0 
+< ram_addr: 7ea   ram_data:   0 
+< ram_addr: 7e7   ram_data:   0 
+< ram_addr: 7e4   ram_data:   0 
+---
 > ram_addr: 7ff   ram_data:  67 
 > ram_addr: 7fe   ram_data:  25 
 > ram_addr: 7fd   ram_data:   5 
