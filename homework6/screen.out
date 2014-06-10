@@ -99,261 +99,131 @@ Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl
 # sending: 55
 # sending: 43
 # sending: 3c
-# write to RAM:: address: 7ff  data:  71 
-# 
-# write to RAM:: address: 7fe  data:   0 
-# 
 # sending: a5
 # sending: 0a
 # sending: 14
 # sending: 1e
 # sending: 28
-# write to RAM:: address: 7fd  data:   0 
-# 
-# write to RAM:: address: 7fc  data:   0 
-# 
 # sending: a5
 # sending: 02
-# write to RAM:: address: 7fb  data:   0 
-# 
-# write to RAM:: address: 7fa  data:   0 
-# 
 # sending: 04
-# write to RAM:: address: 7f9  data:   0 
-# 
-# write to RAM:: address: 7f8  data:   0 
-# 
 # sending: 06
-# write to RAM:: address: 7f7  data:  71 
-# 
-# write to RAM:: address: 7f6  data:  42 
-# 
 # sending: 08
 # sending: c3
 # sending: 0a
-# write to RAM:: address: 7f5  data:   0 
-# 
 # sending: 0c
 # sending: 0e
-# write to RAM:: address: 7f4  data:   0 
-# 
-# write to RAM:: address: 7f3  data:   0 
-# 
 # sending: 10
-# write to RAM:: address: 7f2  data:   0 
-# 
-# write to RAM:: address: 7f1  data:   0 
-# 
 # sending: a5
 # sending: 12
-# write to RAM:: address: 7f0  data:   0 
-# 
-# write to RAM:: address: 7ef  data:  71 
-# 
 # sending: 14
-# write to RAM:: address: 7ee  data:  42 
-# 
-# write to RAM:: address: 7ed  data:   0 
-# 
 # sending: 16
 # sending: 18
 # sending: c3
 # sending: 1a
 # sending: 1c
-# write to RAM:: address: 7ec  data:   0 
-# 
-# write to RAM:: address: 7eb  data:   0 
-# 
 # sending: 1e
-# write to RAM:: address: 7ea  data:   0 
-# 
-# write to RAM:: address: 7e9  data:   0 
+# write to RAM:: address: 7ff  data:  25 
 # 
 # sending: 1f
-# write to RAM:: address: 7e8  data:   0 
-# 
-# write to RAM:: address: 7e7  data:  71 
+# write to RAM:: address: 7fe  data:  14 
 # 
 # sending: a5
-# write to RAM:: address: 7e6  data:  42 
+# sending: 7f
+# sending: 7f
+# sending: 7f
+# write to RAM:: address: 7fd  data:   0 
 # 
 # sending: 7f
-# sending: 7f
-# sending: 7f
-# sending: 7f
-# write to RAM:: address: 7e5  data:  30 
-# 
-# write to RAM:: address: 7e4  data:   0 
+# write to RAM:: address: 7fc  data:   4 
 # 
 # sending: a5
 # sending: 22
-# write to RAM:: address: 7e3  data:   0 
-# 
-# write to RAM:: address: 7e2  data:   0 
+# write to RAM:: address: 7fb  data:  31 
 # 
 # sending: 24
 # sending: 26
 # sending: 28
-# write to RAM:: address: 7e1  data:   0 
-# 
 # sending: c3
 # sending: 2a
-# write to RAM:: address: 7e0  data:   0 
-# 
-# write to RAM:: address: 7df  data:  71 
+# write to RAM:: address: 7fa  data:  10 
 # 
 # sending: 2c
-# write to RAM:: address: 7de  data:  42 
-# 
-# write to RAM:: address: 7dd  data:  30 
+# write to RAM:: address: 7f9  data:   0 
 # 
 # sending: 2e
-# write to RAM:: address: 7dc  data:   0 
-# 
-# write to RAM:: address: 7db  data:   0 
+# write to RAM:: address: 7f8  data:   4 
 # 
 # sending: 30
-# write to RAM:: address: 7da  data:   0 
-# 
-# write to RAM:: address: 7d9  data:   0 
+# write to RAM:: address: 7f7  data:  31 
 # 
 # sending: a5
 # sending: 02
-# write to RAM:: address: 7d8  data:   0 
-# 
-# write to RAM:: address: 7d7  data:  71 
+# write to RAM:: address: 7f6  data:  10 
 # 
 # sending: 04
-# write to RAM:: address: 7d6  data:  42 
-# 
-# write to RAM:: address: 7d5  data:  30 
-# 
 # sending: 06
-# write to RAM:: address: 7d4  data:   0 
-# 
-# write to RAM:: address: 7d3  data:   0 
+# write to RAM:: address: 7f5  data:  51 
 # 
 # sending: 08
 # sending: 83
 # sending: a5
 # sending: c3
 # sending: a5
-# write to RAM:: address: 7d2  data:   0 
-# 
-# write to RAM:: address: 7d1  data: 123 
-# 
-# write to RAM:: address: 7d0  data: 165 
+# write to RAM:: address: 7f4  data:   4 
 # 
 # sending: c3
-# write to RAM:: address: 7cf  data: 195 
-# 
-# write to RAM:: address: 7ce  data: 195 
+# write to RAM:: address: 7f3  data:  31 
 # 
 # sending: a5
 # sending: 12
-# write to RAM:: address: 7cd  data: 195 
-# 
-# write to RAM:: address: 7cc  data:  99 
+# write to RAM:: address: 7f2  data:  10 
 # 
 # sending: 14
-# write to RAM:: address: 7cb  data: 195 
-# 
-# write to RAM:: address: 7ca  data: 195 
+# write to RAM:: address: 7f1  data:   4 
 # 
 # sending: 16
 # sending: 18
 # sending: c1
 # sending: a5
 # sending: a5
-# write to RAM:: address: 7c9  data: 195 
+# write to RAM:: address: 7f0  data:   4 
 # 
-# write to RAM:: address: 7c8  data: 165 
-# 
-# sending: c3
-# write to RAM:: address: 7c7  data: 165 
-# 
-# write to RAM:: address: 7c6  data: 195 
+# write to RAM:: address: 7ef  data:  31 
 # 
 # sending: c3
-# write to RAM:: address: 7c5  data: 195 
+# write to RAM:: address: 7ee  data:  10 
 # 
-# write to RAM:: address: 7c4  data: 195 
+# sending: c3
+# write to RAM:: address: 7ed  data:   4 
 # 
 # sending: a1
-# write to RAM:: address: 7c3  data: 195 
-# 
 # sending: a5
 # sending: c3
 # sending: c3
 # sending: a5
-# write to RAM:: address: 7c2  data: 187 
-# 
-# write to RAM:: address: 7c1  data: 165 
-# 
 # sending: a5
 # sending: 22
-# write to RAM:: address: 7c0  data: 165 
-# 
-# write to RAM:: address: 7bf  data: 165 
-# 
 # sending: 24
 # sending: 26
 # sending: 28
 # sending: c6
 # sending: c3
-# write to RAM:: address: 7be  data: 165 
-# 
-# write to RAM:: address: 7bd  data: 180 
-# 
 # sending: a5
-# write to RAM:: address: 7bc  data: 195 
-# 
-# write to RAM:: address: 7bb  data: 180 
-# 
 # sending: 46
-# write to RAM:: address: 7ba  data: 165 
-# 
-# write to RAM:: address: 7b9  data: 165 
-# 
 # sending: 48
-# write to RAM:: address: 7b8  data: 165 
-# 
-# write to RAM:: address: 7b7  data: 165 
-# 
 # sending: c2
-# write to RAM:: address: 7b6  data: 165 
-# 
 # sending: a5
-# write to RAM:: address: 7b5  data: 165 
-# 
-# write to RAM:: address: 7b4  data: 165 
-# 
 # sending: c3
 # sending: a5
 # sending: c3
-# write to RAM:: address: 7b3  data: 172 
+# write to RAM:: address: 7ec  data:  31 
 # 
-# write to RAM:: address: 7b2  data: 195 
+# write to RAM:: address: 7eb  data:  10 
 # 
-# write to RAM:: address: 7b1  data: 195 
+# write to RAM:: address: 7ea  data:   4 
 # 
-# write to RAM:: address: 7b0  data: 195 
-# 
-# write to RAM:: address: 7af  data: 195 
-# 
-# write to RAM:: address: 7ae  data: 195 
-# 
-# write to RAM:: address: 7ad  data: 195 
-# 
-# write to RAM:: address: 7ac  data: 195 
-# 
-# write to RAM:: address: 7ab  data: 195 
-# 
-# write to RAM:: address: 7aa  data: 195 
-# 
-# write to RAM:: address: 7a9  data: 195 
-# 
-# write to RAM:: address: 7a8  data: 195 
+# write to RAM:: address: 7e9  data:   4 
 # 
 
 RTL: COMPARING output_data_rtl WITH golden_data...

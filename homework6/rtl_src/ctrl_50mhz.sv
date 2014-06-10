@@ -13,12 +13,12 @@ module ctrl_50mhz (
 	);
 
 
-	//comp_byte reg
+	//assem_byte reg
 	enum reg 	{
-			not_complete	= 1'b0,
-			complete	= 1'b1,
-			comp_byte_xx	= 'x
-			} comp_byte_ps, comp_byte_ns;
+			not_assembling	= 1'b0,
+			assembling	= 1'b1,
+			assem_byte_xx	= 'x
+			} assem_byte_ps;
 
 	//temp_pkt reg
 	enum reg 	{
@@ -44,26 +44,21 @@ module ctrl_50mhz (
 			write_byte_xx	= 'x
 			} write_byte_ps, write_byte_ns;
 
+	reg	byte_assembled;
 
-//comp_byte state machine
+
+//assem_byte state machine
 always_ff @(posedge clk, negedge reset_n)
 begin
-	if(!reset_n)	comp_byte_ps <= not_complete;
-	else		comp_byte_ps <= comp_byte_ns;
+	if(!reset_n)	assem_byte_ps <= not_assembling;
+	else if (serial_en)
+		assem_byte_ps <= assembling;
+	else	assem_byte_ps <= not_assembling;
 end
 
 always_comb
 begin
-	comp_byte_ns = comp_byte_xx;
-	
-	case(comp_byte_ps)
-		not_complete :	begin
-				if(!serial_en)	comp_byte_ns = complete;
-				else		comp_byte_ns = not_complete;
-		end
-
-		complete     :	comp_byte_ns = not_complete;
-	endcase
+	byte_assembled = (assem_byte_ps == assembling && !serial_en);
 end
 
 
@@ -107,7 +102,7 @@ begin
 
 	case(write_fifo_ps)
 		no_write_fifo :	begin
-				if(comp_byte_ns == complete &&
+				if(byte_assembled &&
 				   write_byte_ps != header &&
 				   temp_pkt_ps == temp_pkt)
 						write_fifo_ns = write_fifo;
@@ -132,31 +127,31 @@ begin
 
 	case(write_byte_ps)
 		header       :	begin
-				if(comp_byte_ns == complete)
+				if(byte_assembled)
 						write_byte_ns = byte1;
 				else		write_byte_ns = header;
 		end
 
 		byte1        :	begin
-				if(comp_byte_ns == complete)
+				if(byte_assembled)
 						write_byte_ns = byte2;
 				else		write_byte_ns = byte1;
 		end
 
 		byte2        :	begin
-				if(comp_byte_ns == complete)
+				if(byte_assembled)
 						write_byte_ns = byte3;
 				else		write_byte_ns = byte2;
 		end
 
 		byte3        :	begin
-				if(comp_byte_ns == complete)
+				if(byte_assembled)
 						write_byte_ns = byte4;
 				else		write_byte_ns = byte3;
 		end
 
 		byte4        :	begin
-				if(comp_byte_ns == complete)
+				if(byte_assembled)
 						write_byte_ns = header;
 				else		write_byte_ns = byte4;
 		end

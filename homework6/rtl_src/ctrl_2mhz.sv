@@ -19,7 +19,7 @@ module ctrl_2mhz (
 			no_read_fifo	= 1'b0,
 			read_fifo	= 1'b1,
 			read_fifo_xx	= 'x
-			} read_fifo_ps, read_fifo_ns;
+			} read_fifo_ps;
 
 	//reset_ac reg
 	enum reg	{
@@ -49,15 +49,9 @@ module ctrl_2mhz (
 always_ff @(posedge clk, negedge reset_n)
 begin
 	if(!reset_n)	read_fifo_ps <= no_read_fifo; 
-	else		read_fifo_ps <= read_fifo_ns;
-end
-
-always_comb
-begin
-	read_fifo_ns = read_fifo_xx;
-
-	if(!fifo_empty)	read_fifo_ns <= read_fifo;
-	else		read_fifo_ns <= no_read_fifo;
+	else if(!fifo_empty)		
+			read_fifo_ps <= read_fifo;
+	else		read_fifo_ps <= no_read_fifo;
 end
 
 
@@ -85,20 +79,22 @@ begin
 	else		write_ram_ps <= write_ram_ns;
 end
 
-always_comb
+always_ff @(posedge clk, negedge reset_n)
 begin
-	write_ram_ns = write_ram_xx;
+	if(!reset_n)	write_ram_ns <= no_wr_ram;
 
-	case(write_ram_ps)
-		no_wr_ram     :	begin
-				if(read_byte_ps == byte4 &&
-				   read_byte_ns == byte1)
-						write_ram_ns = wr_ram;
-				else		write_ram_ns = no_wr_ram;
-		end
-		
-		wr_ram	      :	write_ram_ns = no_wr_ram;
-	endcase
+	else begin
+		case(write_ram_ps)
+			no_wr_ram     :	begin
+					if(read_byte_ps == byte4 &&
+					   read_byte_ns == byte1)
+							write_ram_ns <= wr_ram;
+					else		write_ram_ns <= no_wr_ram;
+			end
+			
+			wr_ram	      :	write_ram_ns <= no_wr_ram;
+		endcase
+	end
 end
 
 
@@ -109,35 +105,37 @@ begin
 	else		read_byte_ps <= read_byte_ns;
 end
 
-always_comb
+always_ff @(posedge clk, negedge reset_n)
 begin
-	read_byte_ns = read_byte_xx;
+	if(!reset_n)	read_byte_ns <= byte1;
 
-	case(read_byte_ps)
-		byte1	      :	begin
-				if(read_fifo_ps == read_fifo)
-						read_byte_ns = byte2;
-				else		read_byte_ns = byte1;
-		end
+	else begin
+		case(read_byte_ps)
+			byte1	      :	begin
+					if(read_fifo_ps == read_fifo)
+							read_byte_ns <= byte2;
+					else		read_byte_ns <= byte1;
+			end
 
-		byte2	      :	begin
-				if(read_fifo_ps == read_fifo)
-						read_byte_ns = byte3;
-				else		read_byte_ns = byte2;
-		end
+			byte2	      :	begin
+					if(read_fifo_ps == read_fifo)
+							read_byte_ns <= byte3;
+					else		read_byte_ns <= byte2;
+			end
 
-		byte3	      :	begin
-				if(read_fifo_ps == read_fifo)
-						read_byte_ns = byte4;
-				else		read_byte_ns = byte3;
-		end
+			byte3	      :	begin
+					if(read_fifo_ps == read_fifo)
+							read_byte_ns <= byte4;
+					else		read_byte_ns <= byte3;
+			end
 
-		byte4	      :	begin
-				if(read_fifo_ps == read_fifo)
-						read_byte_ns = byte1;
-				else		read_byte_ns = byte4;
-		end
-	endcase
+			byte4	      :	begin
+					if(read_fifo_ps == read_fifo)
+							read_byte_ns <= byte1;
+					else		read_byte_ns <= byte4;
+			end
+		endcase
+	end
 end
 
 
