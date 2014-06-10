@@ -33,10 +33,6 @@ if [ -e "vectors/output_data_gate_sdf" ]
 then
 	rm -f vectors/output_data_gate_sdf
 fi
-if [ -e "vectors/golden_data" ]
-then
-	rm -f vectors/golden_data
-fi
 if [ -e "reports" ] 
 then
 	rm -r -f reports/
