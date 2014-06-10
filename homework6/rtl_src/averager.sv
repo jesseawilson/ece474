@@ -10,7 +10,7 @@ module averager (
 	input		  reset_n,
 	input		  zero_sel,
 	input		  read,
-	input [7:0]	  data_in,
+	input	   [7:0]  data_in,
 	output reg [7:0]  data_out
 	);
 
@@ -19,7 +19,7 @@ module averager (
 
 always_ff @(posedge clk, negedge reset_n)
 begin
-	if(!reset_n) acl <= '0;
+	if(!reset_n)  acl <= '0;
 
 	else if(read) begin
 		case(zero_sel)

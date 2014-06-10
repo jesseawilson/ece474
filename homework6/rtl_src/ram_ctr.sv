@@ -15,14 +15,14 @@ module ram_ctr (
 
 always_ff @(posedge clk, negedge reset_n)
 begin
-	if(!reset_n) ram_addr <= 11'h07ff;
+	if(!reset_n) ram_addr <= 11'h7ff;
 
-	else if(!write_ram && ram_addr == 11'h0000) begin
-		ram_addr <= 11'h07ff;
+	else if(write_ram && ram_addr == 11'h000) begin
+		ram_addr <= 11'h7ff;
 	end
 
-	else if(!write_ram) begin
-		ram_addr <= (ram_addr - 1'h1);
+	else if(write_ram) begin
+		ram_addr <= (ram_addr - 1'b1);
 	end
 end
 

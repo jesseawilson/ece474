@@ -30,8 +30,8 @@ module ctrl_2mhz (
 
 	//write_ram reg
 	enum reg	{
-			no_wr_ram	= 1'b1,
-			wr_ram		= 1'b0,
+			no_wr_ram	= 1'b0,
+			wr_ram		= 1'b1,
 			write_ram_xx	= 'x
 			} write_ram_ps, write_ram_ns;
 

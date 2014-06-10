@@ -1,2 +1,2 @@
-run 18000 ns
+run 180000 ns
 quit -f
