@@ -1,0 +1,200 @@
+README
+Jesse Wilson
+ECE 474
+Project 6
+
+
+Total cell area:          6516.861055
+Total area:               6825.609252
+Total gate count:	  1178.5409
+
+
+SETUP TIME: 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : tas
+Version: E-2010.12-SP2
+Date   : Wed Jun 11 00:07:21 2014
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: top
+
+  Startpoint: fifo_0/wr_addr_reg[0]
+              (rising edge-triggered flip-flop clocked by my_clock_50)
+  Endpoint: ctrl_2mhz_0/reset_ac_ps_reg
+            (rising edge-triggered flip-flop clocked by my_clock_2)
+  Path Group: my_clock_2
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_50 (rise edge)                         480.00     480.00
+  clock network delay (ideal)                             0.00     480.00
+  fifo_0/wr_addr_reg[0]/CLK (DFFARX1)                     0.00     480.00 r
+  fifo_0/wr_addr_reg[0]/Q (DFFARX1)                       0.33     480.33 f
+  U153/Q (XOR2X1)                                         0.15     480.49 r
+  U32/QN (NAND3X0)                                        0.05     480.54 f
+  U31/QN (NOR2X0)                                         0.83     481.37 r
+  U18/QN (INVX0)                                          1.06     482.43 f
+  U115/QN (NAND2X0)                                       0.18     482.61 r
+  U114/Q (XNOR2X1)                                        0.18     482.79 r
+  U33/Q (OR2X1)                                           0.08     482.87 r
+  ctrl_2mhz_0/reset_ac_ps_reg/D (DFFARX1)                 0.00     482.87 r
+  data arrival time                                                482.87
+
+  clock my_clock_2 (rise edge)                          500.00     500.00
+  clock network delay (ideal)                             0.00     500.00
+  clock uncertainty                                      -0.02     499.98
+  ctrl_2mhz_0/reset_ac_ps_reg/CLK (DFFARX1)               0.00     499.98 r
+  library setup time                                     -0.11     499.87
+  data required time                                               499.87
+  --------------------------------------------------------------------------
+  data required time                                               499.87
+  data arrival time                                               -482.87
+  --------------------------------------------------------------------------
+  slack (MET)                                                       16.99
+
+
+  Startpoint: data_ena (input port clocked by my_clock_50)
+  Endpoint: ctrl_50mhz_0/temp_pkt_ps_reg
+            (rising edge-triggered flip-flop clocked by my_clock_50)
+  Path Group: my_clock_50
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_50 (rise edge)                           0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  data_ena (in)                                           0.02       1.02 r
+  U146/Q (NBUFFX2)                                        0.13       1.15 r
+  U34/QN (INVX0)                                          0.28       1.43 f
+  U78/QN (NAND2X0)                                        0.16       1.58 r
+  U35/QN (INVX0)                                          0.14       1.73 f
+  U73/Q (XOR2X1)                                          0.15       1.88 r
+  U72/QN (NAND2X0)                                        0.09       1.97 f
+  U36/QN (INVX0)                                          0.08       2.05 r
+  U90/QN (NOR3X0)                                         0.09       2.14 f
+  U89/QN (OAI22X1)                                        0.17       2.31 r
+  ctrl_50mhz_0/temp_pkt_ps_reg/D (DFFARX1)                0.00       2.31 r
+  data arrival time                                                  2.31
+
+  clock my_clock_50 (rise edge)                          20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.02      19.98
+  ctrl_50mhz_0/temp_pkt_ps_reg/CLK (DFFARX1)              0.00      19.98 r
+  library setup time                                     -0.11      19.87
+  data required time                                                19.87
+  --------------------------------------------------------------------------
+  data required time                                                19.87
+  data arrival time                                                 -2.31
+  --------------------------------------------------------------------------
+  slack (MET)                                                       17.55
+
+
+
+HOLD TIME: 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : tas
+Version: E-2010.12-SP2
+Date   : Wed Jun 11 00:07:21 2014
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: top
+
+  Startpoint: ram_ctr_0/ram_addr_reg[0]
+              (rising edge-triggered flip-flop clocked by my_clock_2)
+  Endpoint: ram_ctr_0/ram_addr_reg[0]
+            (rising edge-triggered flip-flop clocked by my_clock_2)
+  Path Group: my_clock_2
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_2 (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ram_ctr_0/ram_addr_reg[0]/CLK (DFFASX1)                 0.00       0.00 r
+  ram_ctr_0/ram_addr_reg[0]/QN (DFFASX1)                  0.19       0.19 f
+  U248/Q (AO221X1)                                        0.17       0.37 f
+  ram_ctr_0/ram_addr_reg[0]/D (DFFASX1)                   0.00       0.37 f
+  data arrival time                                                  0.37
+
+  clock my_clock_2 (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.02       0.02
+  ram_ctr_0/ram_addr_reg[0]/CLK (DFFASX1)                 0.00       0.02 r
+  library hold time                                      -0.03      -0.01
+  data required time                                                -0.01
+  --------------------------------------------------------------------------
+  data required time                                                -0.01
+  data arrival time                                                 -0.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.38
+
+
+  Startpoint: data_ena (input port clocked by my_clock_50)
+  Endpoint: ctrl_50mhz_0/assem_byte_ps_reg
+            (rising edge-triggered flip-flop clocked by my_clock_50)
+  Path Group: my_clock_50
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_50 (rise edge)                           0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.10       0.10 f
+  data_ena (in)                                           0.03       0.13 f
+  ctrl_50mhz_0/assem_byte_ps_reg/D (DFFARX1)              0.00       0.13 f
+  data arrival time                                                  0.13
+
+  clock my_clock_50 (rise edge)                           0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.02       0.02
+  ctrl_50mhz_0/assem_byte_ps_reg/CLK (DFFARX1)            0.00       0.02 r
+  library hold time                                      -0.05      -0.03
+  data required time                                                -0.03
+  --------------------------------------------------------------------------
+  data required time                                                -0.03
+  data arrival time                                                 -0.13
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.15
+
+
+
+LATCHES:
+There were no latches at any point in the project. 
+
+Problems:
+My project does not work at the gate level, but it does work at the gate sdf
+level. My guess is that there is a problem with my design such that it doesn't
+work at the given clock cycle, but when delays are introduced into the design
+with the sdf stuff, it makes for enough delay that it works. I could be
+totally wrong though. 
+
