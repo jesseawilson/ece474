@@ -82,7 +82,6 @@ Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl
 # 6.6a
 
 # vsim -do dofile -c -quiet -t 1ps tb 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
 # //
 # //  Copyright 1991-2010 Mentor Graphics Corporation

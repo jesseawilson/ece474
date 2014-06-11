@@ -75,15 +75,15 @@ begin
 
 	case(temp_pkt_ps)
 		not_temp_pkt :	begin
-				if(A5_or_C3 && write_byte_ns == byte1)
-						temp_pkt_ns = temp_pkt;
-				else		temp_pkt_ns = not_temp_pkt;
+				if(A5_or_C3 && write_byte_ps == header)
+					temp_pkt_ns = temp_pkt;
+				else	temp_pkt_ns = not_temp_pkt;
 		end
 
 		temp_pkt     :	begin
 				if(write_byte_ns == header)
-						temp_pkt_ns = not_temp_pkt;
-				else		temp_pkt_ns = temp_pkt;
+					temp_pkt_ns = not_temp_pkt;
+				else	temp_pkt_ns = temp_pkt;
 		end
 	endcase
 end
@@ -105,8 +105,8 @@ begin
 				if(byte_assembled &&
 				   write_byte_ps != header &&
 				   temp_pkt_ps == temp_pkt)
-						write_fifo_ns = write_fifo;
-				else		write_fifo_ns = no_write_fifo;
+					write_fifo_ns = write_fifo;
+				else	write_fifo_ns = no_write_fifo;
 		end
 
 		write_fifo    :	write_fifo_ns = no_write_fifo;
@@ -128,32 +128,32 @@ begin
 	case(write_byte_ps)
 		header       :	begin
 				if(byte_assembled)
-						write_byte_ns = byte1;
-				else		write_byte_ns = header;
+					write_byte_ns = byte1;
+				else	write_byte_ns = header;
 		end
 
 		byte1        :	begin
 				if(byte_assembled)
-						write_byte_ns = byte2;
-				else		write_byte_ns = byte1;
+					write_byte_ns = byte2;
+				else	write_byte_ns = byte1;
 		end
 
 		byte2        :	begin
 				if(byte_assembled)
-						write_byte_ns = byte3;
-				else		write_byte_ns = byte2;
+					write_byte_ns = byte3;
+				else	write_byte_ns = byte2;
 		end
 
 		byte3        :	begin
 				if(byte_assembled)
-						write_byte_ns = byte4;
-				else		write_byte_ns = byte3;
+					write_byte_ns = byte4;
+				else	write_byte_ns = byte3;
 		end
 
 		byte4        :	begin
 				if(byte_assembled)
-						write_byte_ns = header;
-				else		write_byte_ns = byte4;
+					write_byte_ns = header;
+				else	write_byte_ns = byte4;
 		end
 
 	endcase

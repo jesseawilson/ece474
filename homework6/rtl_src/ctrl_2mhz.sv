@@ -67,8 +67,8 @@ begin
 	reset_ac_ns = reset_ac_xx;
 
 	if(read_byte_ns != byte1) 
-			reset_ac_ns = no_reset_ac;
-	else		reset_ac_ns = reset_ac;
+		reset_ac_ns = no_reset_ac;
+	else	reset_ac_ns = reset_ac;
 end
 
 
@@ -86,10 +86,9 @@ begin
 	else begin
 		case(write_ram_ps)
 			no_wr_ram     :	begin
-					if(read_byte_ps == byte4 &&
-					   read_byte_ns == byte1)
-							write_ram_ns <= wr_ram;
-					else		write_ram_ns <= no_wr_ram;
+					if(read_byte_ps == byte4)
+						write_ram_ns <= wr_ram;
+					else	write_ram_ns <= no_wr_ram;
 			end
 			
 			wr_ram	      :	write_ram_ns <= no_wr_ram;
@@ -105,7 +104,7 @@ begin
 	else		read_byte_ps <= read_byte_ns;
 end
 
-always_ff @(posedge clk, negedge reset_n)
+always_comb
 begin
 	if(!reset_n)	read_byte_ns <= byte1;
 
@@ -113,26 +112,26 @@ begin
 		case(read_byte_ps)
 			byte1	      :	begin
 					if(read_fifo_ps == read_fifo)
-							read_byte_ns <= byte2;
-					else		read_byte_ns <= byte1;
+						read_byte_ns <= byte2;
+					else	read_byte_ns <= byte1;
 			end
 
 			byte2	      :	begin
 					if(read_fifo_ps == read_fifo)
-							read_byte_ns <= byte3;
-					else		read_byte_ns <= byte2;
+						read_byte_ns <= byte3;
+					else	read_byte_ns <= byte2;
 			end
 
 			byte3	      :	begin
 					if(read_fifo_ps == read_fifo)
-							read_byte_ns <= byte4;
-					else		read_byte_ns <= byte3;
+						read_byte_ns <= byte4;
+					else	read_byte_ns <= byte3;
 			end
 
 			byte4	      :	begin
 					if(read_fifo_ps == read_fifo)
-							read_byte_ns <= byte1;
-					else		read_byte_ns <= byte4;
+						read_byte_ns <= byte1;
+					else	read_byte_ns <= byte4;
 			end
 		endcase
 	end

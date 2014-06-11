@@ -62,7 +62,7 @@ shift_reg shift_reg_0 (
 );
 
 
-fifo32 fifo32_0 (
+fifo fifo_0 (
 	.wr_clk		(clk_50),
 	.rd_clk		(clk_2),
 	.reset_n	(reset_n),
