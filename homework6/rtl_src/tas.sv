@@ -17,13 +17,15 @@ module tas (
        	);
 
 	reg [7:0]	parallel_data;
-	reg		read;
+	reg		fifo_read;
+	reg		fifo_write;
 	reg [7:0]	fifo_out;
 	reg		fifo_empty;
 	reg		zero_sel;
 	reg		a5_or_c3;
 
 
+//a5_or_c3 logic 
 always_comb
 begin
 	a5_or_c3 = 'x;
@@ -39,7 +41,7 @@ ctrl_50mhz ctrl_50mhz_0 (
 	.reset_n	(reset_n),
 	.serial_en	(data_ena),
 	.A5_or_C3	(a5_or_c3),
-	.write		(write)
+	.write		(fifo_write)
 );
 
 
@@ -47,7 +49,7 @@ ctrl_2mhz ctrl_2mhz_0 (
 	.clk		(clk_2),
 	.reset_n	(reset_n),
 	.fifo_empty	(fifo_empty),
-	.read		(read),
+	.read		(fifo_read),
 	.zero_sel	(zero_sel),
 	.write_ram	(ram_wr_n)
 );
@@ -66,8 +68,8 @@ fifo fifo_0 (
 	.wr_clk		(clk_50),
 	.rd_clk		(clk_2),
 	.reset_n	(reset_n),
-	.wr		(write),
-	.rd		(read),
+	.wr		(fifo_write),
+	.rd		(fifo_read),
 	.data_in	(parallel_data),
 	.data_out	(fifo_out),
 	.empty		(fifo_empty),
@@ -79,7 +81,7 @@ averager averager_0 (
 	.clk		(clk_2),
 	.reset_n	(reset_n),
 	.zero_sel	(zero_sel),
-	.read		(read),
+	.read		(fifo_read),
 	.data_in	(fifo_out),
 	.data_out	(ram_data)
 );

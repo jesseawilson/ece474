@@ -75,7 +75,7 @@ begin
 
 	case(temp_pkt_ps)
 		not_temp_pkt :	begin
-				if(A5_or_C3 && write_byte_ps == header)
+				if(A5_or_C3 && write_byte_ns == byte1)
 					temp_pkt_ns = temp_pkt;
 				else	temp_pkt_ns = not_temp_pkt;
 		end

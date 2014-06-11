@@ -17,13 +17,11 @@ always_ff @(posedge clk, negedge reset_n)
 begin
 	if(!reset_n) ram_addr <= 11'h7ff;
 
-	else if(write_ram && ram_addr == 11'h000) begin
+	else if(write_ram && ram_addr == 11'h000) 
 		ram_addr <= 11'h7ff;
-	end
 
-	else if(write_ram) begin
-		ram_addr <= (ram_addr - 1'b1);
-	end
+	else if(write_ram) 
+		ram_addr <= (ram_addr - 1);
 end
 
 

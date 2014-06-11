@@ -99,7 +99,7 @@ begin
 	full  = 1'b0;
 
 	if(rd_addr[2:0] == wr_addr[2:0]) begin
-		if(rd_addr[3] == wr_addr[4]) begin
+		if(rd_addr[3] == wr_addr[3]) begin
 			full  = 1'b0;
 			empty = 1'b1;
 		end
