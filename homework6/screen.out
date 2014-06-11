@@ -82,7 +82,6 @@ Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl
 # 6.6a
 
 # vsim -do dofile -c -quiet -t 1ps tb 
-# ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
 # //
 # //  Copyright 1991-2010 Mentor Graphics Corporation
@@ -101,247 +100,410 @@ Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl
 # sending: 3c
 # write to RAM:: address: 7ff  data:  67 
 # 
-# write to RAM:: address: 7fe  data:   0 
-# 
 # sending: a5
 # sending: 0a
 # sending: 14
 # sending: 1e
 # sending: 28
-# write to RAM:: address: 7fd  data:  67 
-# 
-# write to RAM:: address: 7fc  data:  25 
+# write to RAM:: address: 7fe  data:  25 
 # 
 # sending: a5
 # sending: 02
-# write to RAM:: address: 7fb  data:  67 
-# 
-# write to RAM:: address: 7fa  data:  25 
-# 
 # sending: 04
 # sending: 06
-# write to RAM:: address: 7f9  data:  38 
-# 
-# write to RAM:: address: 7f8  data:  25 
-# 
 # sending: 08
 # sending: c3
 # sending: 0a
+# write to RAM:: address: 7fd  data:   5 
+# 
 # sending: 0c
 # sending: 0e
-# write to RAM:: address: 7f7  data:   5 
-# 
-# write to RAM:: address: 7f6  data:  19 
-# 
 # sending: 10
-# write to RAM:: address: 7f5  data:   5 
-# 
-# write to RAM:: address: 7f4  data:  13 
+# write to RAM:: address: 7fc  data:  13 
 # 
 # sending: a5
 # sending: 12
-# write to RAM:: address: 7f3  data:   5 
-# 
-# write to RAM:: address: 7f2  data:  13 
-# 
 # sending: 14
-# write to RAM:: address: 7f1  data:   9 
-# 
-# write to RAM:: address: 7f0  data:  13 
-# 
 # sending: 16
 # sending: 18
 # sending: c3
 # sending: 1a
 # sending: 1c
-# write to RAM:: address: 7ef  data:  21 
-# 
-# write to RAM:: address: 7ee  data:  21 
+# write to RAM:: address: 7fb  data:  21 
 # 
 # sending: 1e
-# write to RAM:: address: 7ed  data:  21 
-# 
-# write to RAM:: address: 7ec  data:  25 
-# 
 # sending: 1f
-# write to RAM:: address: 7eb  data:  21 
-# 
-# write to RAM:: address: 7ea  data:  28 
+# write to RAM:: address: 7fa  data:  28 
 # 
 # sending: a5
 # sending: 7f
 # sending: 7f
-# write to RAM:: address: 7e9  data:  21 
-# 
 # sending: 7f
 # sending: 7f
-# write to RAM:: address: 7e8  data:  28 
-# 
-# write to RAM:: address: 7e7  data: 127 
+# write to RAM:: address: 7f9  data: 127 
 # 
 # sending: a5
 # sending: 22
-# write to RAM:: address: 7e6  data:  28 
-# 
-# write to RAM:: address: 7e5  data: 127 
-# 
 # sending: 24
 # sending: 26
 # sending: 28
 # sending: c3
 # sending: 2a
-# write to RAM:: address: 7e4  data:  35 
-# 
-# write to RAM:: address: 7e3  data: 105 
+# write to RAM:: address: 7f8  data:  37 
 # 
 # sending: 2c
-# write to RAM:: address: 7e2  data:  37 
-# 
-# write to RAM:: address: 7e1  data:  85 
-# 
 # sending: 2e
-# write to RAM:: address: 7e0  data:  37 
-# 
-# write to RAM:: address: 7df  data:  64 
-# 
 # sending: 30
-# write to RAM:: address: 7de  data:  37 
-# 
-# write to RAM:: address: 7dd  data:  45 
+# write to RAM:: address: 7f7  data:  45 
 # 
 # sending: a5
 # sending: 02
-# write to RAM:: address: 7dc  data:  37 
-# 
-# write to RAM:: address: 7db  data:  45 
-# 
 # sending: 04
-# write to RAM:: address: 7da  data:  29 
-# 
-# write to RAM:: address: 7d9  data:  45 
-# 
 # sending: 06
-# write to RAM:: address: 7d8  data:  13 
-# 
-# write to RAM:: address: 7d7  data:  45 
-# 
 # sending: 08
 # sending: 83
 # sending: a5
+# write to RAM:: address: 7f6  data:   5 
+# 
 # sending: c3
 # sending: a5
-# write to RAM:: address: 7d6  data:   5 
-# 
-# write to RAM:: address: 7d5  data:  45 
-# 
 # sending: c3
-# write to RAM:: address: 7d4  data:   5 
-# 
-# write to RAM:: address: 7d3  data:  45 
-# 
 # sending: a5
 # sending: 12
-# write to RAM:: address: 7d2  data:   5 
-# 
-# write to RAM:: address: 7d1  data:  39 
-# 
 # sending: 14
-# write to RAM:: address: 7d0  data:   5 
-# 
-# write to RAM:: address: 7cf  data:  33 
-# 
 # sending: 16
 # sending: 18
 # sending: c1
 # sending: a5
 # sending: a5
-# write to RAM:: address: 7ce  data:   5 
-# 
-# write to RAM:: address: 7cd  data:  21 
+# write to RAM:: address: 7f5  data:  21 
 # 
 # sending: c3
-# write to RAM:: address: 7cc  data:   5 
-# 
-# write to RAM:: address: 7cb  data:  21 
-# 
 # sending: c3
-# write to RAM:: address: 7ca  data:   5 
-# 
-# write to RAM:: address: 7c9  data:  21 
-# 
 # sending: a1
 # sending: a5
 # sending: c3
 # sending: c3
-# write to RAM:: address: 7c8  data:   5 
-# 
 # sending: a5
-# write to RAM:: address: 7c7  data:  21 
-# 
-# write to RAM:: address: 7c6  data:   5 
-# 
 # sending: a5
 # sending: 22
-# write to RAM:: address: 7c5  data:  21 
-# 
-# write to RAM:: address: 7c4  data:  13 
-# 
 # sending: 24
 # sending: 26
 # sending: 28
 # sending: c6
 # sending: c3
-# write to RAM:: address: 7c3  data:  21 
-# 
-# write to RAM:: address: 7c2  data:  37 
+# write to RAM:: address: 7f4  data:  37 
 # 
 # sending: a5
-# write to RAM:: address: 7c1  data:  21 
-# 
-# write to RAM:: address: 7c0  data:  37 
-# 
 # sending: 46
-# write to RAM:: address: 7bf  data:  21 
-# 
-# write to RAM:: address: 7be  data:  37 
-# 
 # sending: 48
-# write to RAM:: address: 7bd  data:  21 
-# 
-# write to RAM:: address: 7bc  data:  37 
-# 
 # sending: c2
 # sending: a5
-# write to RAM:: address: 7bb  data:  21 
-# 
-# write to RAM:: address: 7ba  data:  37 
-# 
 # sending: c3
 # sending: a5
 # sending: c3
-# write to RAM:: address: 7b9  data:  21 
-# 
-# write to RAM:: address: 7b8  data:  37 
-# 
-# write to RAM:: address: 7b7  data:  21 
-# 
-# write to RAM:: address: 7b6  data:  37 
-# 
-# write to RAM:: address: 7b5  data:  21 
-# 
-# write to RAM:: address: 7b4  data:  37 
-# 
-# write to RAM:: address: 7b3  data:  21 
-# 
-# write to RAM:: address: 7b2  data:  37 
-# 
-# write to RAM:: address: 7b1  data:  21 
-# 
-# write to RAM:: address: 7b0  data:  37 
-# 
-# write to RAM:: address: 7af  data:  21 
-# 
 
 RTL: COMPARING output_data_rtl WITH golden_data...
 
-RTL: OUTPUT FILES NOT IDENTICAL. FAILURE!
+RTL: OUTPUT FILES IDENTICAL. SUCCESS!
+
+
+**********************
+*** GATE SYNTHESIS ***
+**********************
+
+SYN: SYNTHESIS LIBRARIES ALREADY COMPILED
+
+SYN: SYNTHESIZING tas WITH dc_syn
+SYN: NO LATCHES FOUND IN GATE SYNTHESIS
+
+
+***********************
+*** GATE SIMULATION ***
+***********************
+
+
+COMPILING tas.gate.v
+Model Technology ModelSim SE vlog 6.6a Compiler 2010.03 Mar 19 2010
+-- Compiling module tas
+
+Top level modules:
+	tas
+
+GATE: SIMULATING tas WITH TESTBENCH
+Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl 
+
+# 6.6a
+
+# vsim +nowarnTFMPC -do dofile -c -quiet -t 1ps tb 
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do dofile 
+# sending: a5
+# sending: 3a
+# sending: 55
+# sending: 43
+# sending: 3c
+# write to RAM:: address: 7ff  data: 119 
+# 
+# sending: a5
+# sending: 0a
+# sending: 14
+# sending: 1e
+# sending: 28
+# write to RAM:: address: 7fe  data:  31 
+# 
+# sending: a5
+# sending: 02
+# sending: 04
+# sending: 06
+# sending: 08
+# sending: c3
+# sending: 0a
+# write to RAM:: address: 7fd  data:   7 
+# 
+# sending: 0c
+# sending: 0e
+# sending: 10
+# write to RAM:: address: 7fc  data:  13 
+# 
+# sending: a5
+# sending: 12
+# sending: 14
+# sending: 16
+# sending: 18
+# sending: c3
+# sending: 1a
+# sending: 1c
+# write to RAM:: address: 7fb  data:  31 
+# 
+# sending: 1e
+# sending: 1f
+# write to RAM:: address: 7fa  data:  29 
+# 
+# sending: a5
+# sending: 7f
+# sending: 7f
+# sending: 7f
+# sending: 7f
+# write to RAM:: address: 7f9  data: 127 
+# 
+# sending: a5
+# sending: 22
+# sending: 24
+# sending: 26
+# sending: 28
+# sending: c3
+# sending: 2a
+# write to RAM:: address: 7f8  data:  63 
+# 
+# sending: 2c
+# sending: 2e
+# sending: 30
+# write to RAM:: address: 7f7  data:  45 
+# 
+# sending: a5
+# sending: 02
+# sending: 04
+# sending: 06
+# sending: 08
+# sending: 83
+# sending: a5
+# write to RAM:: address: 7f6  data:   7 
+# 
+# sending: c3
+# sending: a5
+# sending: c3
+# sending: a5
+# sending: 12
+# sending: 14
+# sending: 16
+# sending: 18
+# sending: c1
+# sending: a5
+# sending: a5
+# write to RAM:: address: 7f5  data:  31 
+# 
+# sending: c3
+# sending: c3
+# sending: a1
+# sending: a5
+# sending: c3
+# sending: c3
+# sending: a5
+# sending: a5
+# sending: 22
+# sending: 24
+# sending: 26
+# sending: 28
+# sending: c6
+# sending: c3
+# write to RAM:: address: 7f4  data:  63 
+# 
+# sending: a5
+# sending: 46
+# sending: 48
+# sending: c2
+# sending: a5
+# sending: c3
+# sending: a5
+# sending: c3
+
+GATE: COMPARING output_data_gate WITH golden_data...
+
+GATE: OUTPUT FILES NOT IDENTICAL. FAILURE!
+
+
+***************************
+*** SDF GATE SIMULATION ***
+***************************
+
+
+SDF: SIMULATING tas WITH TESTBENCH
+Reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/tcl/vsim/pref.tcl 
+
+# 6.6a
+
+# vsim +nowarnTFMPC +nowarn3448 -do dofile -c -quiet -sdfmax /tb/tas_0=sdfout/tas.gate.sdf -t 1ps tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-431.1.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Region: /tb  File: tb_src/tb.sv
+# do dofile 
+# sending: a5
+# sending: 3a
+# sending: 55
+# sending: 43
+# sending: 3c
+# write to RAM:: address: 7ff  data:  67 
+# 
+# sending: a5
+# sending: 0a
+# sending: 14
+# sending: 1e
+# sending: 28
+# write to RAM:: address: 7fe  data:  25 
+# 
+# sending: a5
+# sending: 02
+# sending: 04
+# sending: 06
+# sending: 08
+# sending: c3
+# sending: 0a
+# write to RAM:: address: 7fd  data:   5 
+# 
+# sending: 0c
+# sending: 0e
+# sending: 10
+# write to RAM:: address: 7fc  data:  13 
+# 
+# sending: a5
+# sending: 12
+# sending: 14
+# sending: 16
+# sending: 18
+# sending: c3
+# sending: 1a
+# sending: 1c
+# write to RAM:: address: 7fb  data:  21 
+# 
+# sending: 1e
+# sending: 1f
+# write to RAM:: address: 7fa  data:  28 
+# 
+# sending: a5
+# sending: 7f
+# sending: 7f
+# sending: 7f
+# sending: 7f
+# write to RAM:: address: 7f9  data: 127 
+# 
+# sending: a5
+# sending: 22
+# sending: 24
+# sending: 26
+# sending: 28
+# sending: c3
+# sending: 2a
+# write to RAM:: address: 7f8  data:  37 
+# 
+# sending: 2c
+# sending: 2e
+# sending: 30
+# write to RAM:: address: 7f7  data:  45 
+# 
+# sending: a5
+# sending: 02
+# sending: 04
+# sending: 06
+# sending: 08
+# sending: 83
+# sending: a5
+# write to RAM:: address: 7f6  data:   5 
+# 
+# sending: c3
+# sending: a5
+# sending: c3
+# sending: a5
+# sending: 12
+# sending: 14
+# sending: 16
+# sending: 18
+# sending: c1
+# sending: a5
+# sending: a5
+# write to RAM:: address: 7f5  data:  21 
+# 
+# sending: c3
+# sending: c3
+# sending: a1
+# sending: a5
+# sending: c3
+# sending: c3
+# sending: a5
+# sending: a5
+# sending: 22
+# sending: 24
+# sending: 26
+# sending: 28
+# sending: c6
+# sending: c3
+# write to RAM:: address: 7f4  data:  37 
+# 
+# sending: a5
+# sending: 46
+# sending: 48
+# sending: c2
+# sending: a5
+# sending: c3
+# sending: a5
+# sending: c3
+
+SDF: COMPARING output_data_gate_sdf WITH golden_data...
+
+SDF: OUTPUT FILES IDENTICAL. SUCCESS!
+
+
+*****************************************
+*** E N D   O F   S I M U L A T I O N ***
+*****************************************
+
+

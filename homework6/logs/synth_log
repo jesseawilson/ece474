@@ -1,0 +1,508 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+           Version E-2010.12-SP2 for linux -- Feb 25, 2011
+               Copyright (c) 1988-2011 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+#synopsys synthesis script
+#boilerplate
+set hdlin_auto_save_templates true
+true
+set hdlin_check_no_latch      true
+true
+read_sverilog	rtl_src/averager.sv
+Loading db file '/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db'
+Loading db file '/usr/local/apps/synopsys/current_synthesis/libraries/syn/gtech.db'
+Loading db file '/usr/local/apps/synopsys/current_synthesis/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_typ'
+  Loading link library 'gtech'
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/averager.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/averager.sv
+
+Statistics for case statements in always block at line 20 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/averager.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine averager line 20 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/averager.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       acl_reg       | Flip-flop |  10   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/averager.db:averager'
+Loaded 1 design.
+Current design is 'averager'.
+averager
+read_sverilog	rtl_src/ctrl_2mhz.sv
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv
+
+Statistics for case statements in always block at line 88 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            92            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 111 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           115            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine ctrl_2mhz line 65 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   reset_ac_ps_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ctrl_2mhz line 82 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  write_ram_ps_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ctrl_2mhz line 105 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  read_byte_ps_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Warning:  /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.sv:49: Netlist for always_ff block is empty. (ELAB-984)
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_2mhz.db:ctrl_2mhz'
+Loaded 1 design.
+Current design is 'ctrl_2mhz'.
+ctrl_2mhz
+read_sverilog	rtl_src/ctrl_50mhz.sv
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv
+
+Statistics for case statements in always block at line 72 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            76            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 99 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           103            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 124 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           128            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine ctrl_50mhz line 51 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  assem_byte_ps_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ctrl_50mhz line 66 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   temp_pkt_ps_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ctrl_50mhz line 93 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  write_fifo_ps_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ctrl_50mhz line 118 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  write_byte_ps_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ctrl_50mhz.db:ctrl_50mhz'
+Loaded 1 design.
+Current design is 'ctrl_50mhz'.
+ctrl_50mhz
+read_sverilog	rtl_src/fifo.sv
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv
+
+Statistics for case statements in always block at line 41 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            55            |    user/user     |
+===============================================
+
+Statistics for case statements in always block at line 78 in file
+	'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            82            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine fifo line 33 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     wr_addr_reg     | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fifo line 41 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      byte7_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte0_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte1_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte2_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte3_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte4_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte5_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      byte6_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fifo line 70 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rd_addr_reg     | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/fifo.db:fifo'
+Loaded 1 design.
+Current design is 'fifo'.
+fifo
+read_sverilog	rtl_src/ram_ctr.sv
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ram_ctr.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ram_ctr.sv
+
+Inferred memory devices in process
+	in routine ram_ctr line 16 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ram_ctr.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    ram_addr_reg     | Flip-flop |  11   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/ram_ctr.db:ram_ctr'
+Loaded 1 design.
+Current design is 'ram_ctr'.
+ram_ctr
+read_sverilog	rtl_src/shift_reg.sv
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/shift_reg.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/shift_reg.sv
+
+Inferred memory devices in process
+	in routine shift_reg line 20 in file
+		'/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/shift_reg.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      bits_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/shift_reg.db:shift_reg'
+Loaded 1 design.
+Current design is 'shift_reg'.
+shift_reg
+read_sverilog	rtl_src/tas.sv 
+Loading sverilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/tas.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/tas.sv
+Presto compilation completed successfully.
+Current design is now '/nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/tas.db:tas'
+Loaded 1 design.
+Current design is 'tas'.
+tas
+current_design tas 
+Current design is 'tas'.
+{tas}
+link
+
+  Linking design 'tas'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /nfs/stak/students/w/wilsonj/ECE474/homework6/rtl_src/tas.db, etc
+  saed90nm_typ (library)      /nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db
+
+1
+##### constraints are below #####
+#erase all attributes and constrains from the current design
+reset_design
+1
+#set the environmental conditons to TYPICAL
+set_operating_conditions -max TYPICAL
+Using operating conditions 'TYPICAL' found in library 'saed90nm_typ'.
+1
+#set wire loading model to 8000
+set_wire_load_model -name 8000
+1
+#set wire loading mode to top  
+set_wire_load_mode top 
+1
+# Define the clock period as 2ns and clock port (2ns clock period)
+# Give the clock the name "my_clock"
+create_clock -period 500 -name my_clock_2  [get_ports clk_2]
+1
+create_clock -period 20  -name my_clock_50 [get_ports clk_50]
+1
+# Set the clock uncertainty relative to my_clock as +/- 20pS
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock_2]
+1
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock_2]
+1
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock_50]
+1
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock_50]
+1
+# set the "input valid" delay to 1.0nS
+# exclude clock from the inputs expecting the delay
+set_input_delay 1.0 -max -clock my_clock_50 [remove_from_collection [all_inputs] [get_ports clk_50]]
+1
+# set the setup time requirements for the next block to 1nS
+# exclude clock from the inputs expecting the delay
+set_output_delay 1 -max -clock my_clock_2 [all_outputs]
+1
+#The next two are hard to get right, so I'll be nice!
+#set the fastest input data arrival time to check for hold time changes to 100pS
+set_input_delay -min 0.100 -clock my_clock_50 [remove_from_collection [all_inputs] [get_ports clk_50]]
+1
+# set the hold time requirements for the next block to 150pS
+set_output_delay -min -0.150 -clock my_clock [all_outputs]
+Warning: Can't find clock 'my_clock' in design 'tas'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+# Indicate the drive characteristics of what drives the inputs:
+# Use SDFFARX1 as the driving cell
+set_driving_cell -lib_cell SDFFARX1 [remove_from_collection [all_inputs] [get_ports clk_50]]
+1
+# Indicate the capacitive loading on the outputs equal to 5 inv_2 inverter inputs.
+set_load [expr 5 * [load_of saed90nm_typ/INVX1/IN]] [all_outputs]
+1
+# Compile with completely disolved design
+compile -ungroup_all
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | E-2010.12-DWBB_201012.2 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 4 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'ram_ctr'
+  Processing 'averager'
+  Ungrouping instance 'dp_cluster_0' 
+  Processing 'fifo'
+  Processing 'shift_reg'
+  Processing 'ctrl_2mhz'
+  Processing 'ctrl_50mhz'
+  Processing 'tas'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+  Ungrouping instance 'ctrl_50mhz_0' 
+  Ungrouping instance 'ctrl_2mhz_0' 
+  Ungrouping instance 'shift_reg_0' 
+  Ungrouping instance 'fifo_0' 
+  Ungrouping instance 'averager_0' 
+  Ungrouping instance 'ram_ctr_0' 
+Information: Total 0 isolation cells are inserted. (UPF-214)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'DW01_dec_width11'
+  Processing 'DW02_mult_A_width10_B_width1'
+  Processing 'DW01_add_width10'
+  Processing 'DW01_inc_width6'
+  Processing 'DW01_inc_width6'
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Information: The register 'fifo_0/rd_addr_reg[5]' will be removed. (OPT-1207)
+Information: The register 'fifo_0/rd_addr_reg[4]' will be removed. (OPT-1207)
+Information: The register 'fifo_0/wr_addr_reg[5]' will be removed. (OPT-1207)
+Information: The register 'fifo_0/wr_addr_reg[4]' will be removed. (OPT-1207)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   13146.6      0.00       0.0       0.0                          
+    0:00:02   13146.6      0.00       0.0       0.0                          
+    0:00:02   13146.6      0.00       0.0       0.0                          
+    0:00:02   13146.6      0.00       0.0       0.0                          
+    0:00:02   13146.6      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:02    7424.0      0.00       0.0       0.0                          
+    0:00:03    6960.7      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03    6960.7      0.00       0.0       0.0                          
+    0:00:03    6960.7      0.00       0.0       0.0                          
+    0:00:03    6889.4      0.00       0.0       0.0                          
+    0:00:03    6863.8      0.00       0.0       0.0                          
+    0:00:03    6837.2      0.00       0.0       0.0                          
+    0:00:03    6831.9      0.00       0.0       0.0                          
+    0:00:03    6826.5      0.00       0.0       0.0                          
+    0:00:03    6826.5      0.00       0.0       0.0                          
+    0:00:03    6826.5      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+    0:00:03    6825.6      0.00       0.0       0.0                          
+Loading db file '/nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db'
+
+  Optimization Complete
+  ---------------------
+1
+# Make sure we are at the top level
+set current_design  tas 
+tas
+# Generate area and constraints reports on the optimized design
+report_area    > reports/area
+# Generate timing report for worst case path
+report_timing  > reports/delay
+# Generate timing report for hold time 
+#report_timing -delay max > reports/setup_error
+report_timing -delay min > reports/hold_error
+# Find what cells were used to check for latches
+report_hierarchy -full  -nosplit  > reports/cells_used
+#run a design check
+check_design > reports/check_design  
+# Save the optimized design
+write -format verilog -hierarchy -output  vlogout/tas.gate.v
+Writing verilog file '/nfs/stak/students/w/wilsonj/ECE474/homework6/vlogout/tas.gate.v'.
+1
+write_sdf sdfout/tas.gate.sdf -context verilog
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/nfs/stak/students/w/wilsonj/ECE474/homework6/sdfout/tas.gate.sdf'. (WT-3)
+1
+quit
+Information: Defining new variable 'compile_group_pull_control_logic'. (CMD-041)
+
+Thank you...

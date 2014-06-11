@@ -235,8 +235,8 @@ fi
 
 
 # fix missing timing parameter in sdf file
-sed '/(HOLD (posedge RSTB)/d' < sdfout/gcd.gate.sdf > sdfout/$$tempfile
-sed '/(HOLD (posedge SETB)/d' < sdfout/$$tempfile   > sdfout/gcd.gate.sdf
+sed '/(HOLD (posedge RSTB)/d' < "sdfout/$NAME.gate.sdf" > "sdfout/$$tempfile"
+sed '/(HOLD (posedge SETB)/d' < "sdfout/$$tempfile" > "sdfout/$NAME.gate.sdf"
 rm sdfout/$$tempfile
 
 
@@ -301,7 +301,7 @@ then
 	else
 		echo
 		echo "GATE: OUTPUT FILES NOT IDENTICAL. FAILURE!"
-		exit
+		#exit
 	fi
 else	
 	echo "ERROR: GATE: golden_data DOES NOT EXIST"
@@ -320,7 +320,7 @@ if [ -s "dofile" ]
 then
 	echo
 	echo "SDF: SIMULATING $NAME WITH TESTBENCH"
-	vsim tb -do dofile +nowarnTFMPC -quiet -c -sdfmax /tb/gcd_0=sdfout/gcd.gate.sdf -t 1ps +nowarn3448 
+	vsim tb -do dofile +nowarnTFMPC -quiet -c -sdfmax "/tb/"$NAME"_0=sdfout/$NAME.gate.sdf" -t 1ps +nowarn3448 
 else
 	echo "ERROR: SDF: dofile DOES NOT EXIST"
 	exit

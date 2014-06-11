@@ -1,0 +1,26 @@
+1,3c1,3
+< ram_addr: 7ff   ram_data: 119 
+< ram_addr: 7fe   ram_data:  31 
+< ram_addr: 7fd   ram_data:   7 
+---
+> ram_addr: 7ff   ram_data:  67 
+> ram_addr: 7fe   ram_data:  25 
+> ram_addr: 7fd   ram_data:   5 
+5,6c5,6
+< ram_addr: 7fb   ram_data:  31 
+< ram_addr: 7fa   ram_data:  29 
+---
+> ram_addr: 7fb   ram_data:  21 
+> ram_addr: 7fa   ram_data:  28 
+8c8
+< ram_addr: 7f8   ram_data:  63 
+---
+> ram_addr: 7f8   ram_data:  37 
+10,12c10,12
+< ram_addr: 7f6   ram_data:   7 
+< ram_addr: 7f5   ram_data:  31 
+< ram_addr: 7f4   ram_data:  63 
+---
+> ram_addr: 7f6   ram_data:   5 
+> ram_addr: 7f5   ram_data:  21 
+> ram_addr: 7f4   ram_data:  37 

@@ -1,0 +1,32 @@
+Information: Updating graph... (UID-83)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+Warning: Clock port 'my_clock_2' is assigned input delay relative to clock 'my_clock_50'. (TIM-111)
+ 
+****************************************
+Report : area
+Design : tas
+Version: E-2010.12-SP2
+Date   : Wed Jun 11 00:07:21 2014
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed90nm_typ (File: /nfs/guille/a1/cadlibs/synop_lib/SAED_EDK90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_typ_pg.db)
+
+Number of ports:                           25
+Number of nets:                           493
+Number of cells:                          401
+Number of combinational cells:            290
+Number of sequential cells:               111
+Number of macros:                           0
+Number of buf/inv:                         49
+Number of references:                      24
+
+Combinational area:       2946.587007
+Noncombinational area:    3570.274048
+Net Interconnect area:     308.748197  
+
+Total cell area:          6516.861055
+Total area:               6825.609252
+1

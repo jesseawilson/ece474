@@ -1,0 +1,81 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : tas
+Version: E-2010.12-SP2
+Date   : Wed Jun 11 00:07:21 2014
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: top
+
+  Startpoint: ram_ctr_0/ram_addr_reg[0]
+              (rising edge-triggered flip-flop clocked by my_clock_2)
+  Endpoint: ram_ctr_0/ram_addr_reg[0]
+            (rising edge-triggered flip-flop clocked by my_clock_2)
+  Path Group: my_clock_2
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_2 (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ram_ctr_0/ram_addr_reg[0]/CLK (DFFASX1)                 0.00       0.00 r
+  ram_ctr_0/ram_addr_reg[0]/QN (DFFASX1)                  0.19       0.19 f
+  U248/Q (AO221X1)                                        0.17       0.37 f
+  ram_ctr_0/ram_addr_reg[0]/D (DFFASX1)                   0.00       0.37 f
+  data arrival time                                                  0.37
+
+  clock my_clock_2 (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.02       0.02
+  ram_ctr_0/ram_addr_reg[0]/CLK (DFFASX1)                 0.00       0.02 r
+  library hold time                                      -0.03      -0.01
+  data required time                                                -0.01
+  --------------------------------------------------------------------------
+  data required time                                                -0.01
+  data arrival time                                                 -0.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.38
+
+
+  Startpoint: data_ena (input port clocked by my_clock_50)
+  Endpoint: ctrl_50mhz_0/assem_byte_ps_reg
+            (rising edge-triggered flip-flop clocked by my_clock_50)
+  Path Group: my_clock_50
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  tas                8000                  saed90nm_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clock_50 (rise edge)                           0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.10       0.10 f
+  data_ena (in)                                           0.03       0.13 f
+  ctrl_50mhz_0/assem_byte_ps_reg/D (DFFARX1)              0.00       0.13 f
+  data arrival time                                                  0.13
+
+  clock my_clock_50 (rise edge)                           0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.02       0.02
+  ctrl_50mhz_0/assem_byte_ps_reg/CLK (DFFARX1)            0.00       0.02 r
+  library hold time                                      -0.05      -0.03
+  data required time                                                -0.03
+  --------------------------------------------------------------------------
+  data required time                                                -0.03
+  data arrival time                                                 -0.13
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.15
+
+
+1

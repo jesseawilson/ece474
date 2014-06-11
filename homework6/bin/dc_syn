@@ -4,9 +4,15 @@
 set hdlin_auto_save_templates true
 set hdlin_check_no_latch      true
 
-read_sverilog  rtl_src/gcd.sv 
+read_sverilog	rtl_src/averager.sv
+read_sverilog	rtl_src/ctrl_2mhz.sv
+read_sverilog	rtl_src/ctrl_50mhz.sv
+read_sverilog	rtl_src/fifo.sv
+read_sverilog	rtl_src/ram_ctr.sv
+read_sverilog	rtl_src/shift_reg.sv
+read_sverilog	rtl_src/tas.sv 
 
-current_design gcd 
+current_design tas 
 link
 
 ##### constraints are below #####
@@ -25,30 +31,34 @@ set_wire_load_mode top
 
 # Define the clock period as 2ns and clock port (2ns clock period)
 # Give the clock the name "my_clock"
-create_clock -period 2 -name my_clock  [get_ports clk]
+create_clock -period 500 -name my_clock_2  [get_ports clk_2]
+create_clock -period 20  -name my_clock_50 [get_ports clk_50]
 
 # Set the clock uncertainty relative to my_clock as +/- 20pS
-set_clock_uncertainty -setup 0.02 [get_clocks my_clock]
-set_clock_uncertainty -hold  0.02 [get_clocks my_clock]
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock_2]
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock_2]
+
+set_clock_uncertainty -setup 0.02 [get_clocks my_clock_50]
+set_clock_uncertainty -hold  0.02 [get_clocks my_clock_50]
 
 # set the "input valid" delay to 1.0nS
 # exclude clock from the inputs expecting the delay
-set_input_delay 1.0 -max -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
+set_input_delay 1.0 -max -clock my_clock_50 [remove_from_collection [all_inputs] [get_ports clk_50]]
 
 # set the setup time requirements for the next block to 1nS
 # exclude clock from the inputs expecting the delay
-set_output_delay 1 -max -clock my_clock [all_outputs]
+set_output_delay 1 -max -clock my_clock_2 [all_outputs]
 
 #The next two are hard to get right, so I'll be nice!
 #set the fastest input data arrival time to check for hold time changes to 100pS
-set_input_delay -min 0.100 -clock my_clock [remove_from_collection [all_inputs] [get_ports clk]]
+set_input_delay -min 0.100 -clock my_clock_50 [remove_from_collection [all_inputs] [get_ports clk_50]]
 
 # set the hold time requirements for the next block to 150pS
 set_output_delay -min -0.150 -clock my_clock [all_outputs]
 
 # Indicate the drive characteristics of what drives the inputs:
 # Use SDFFARX1 as the driving cell
-set_driving_cell -lib_cell SDFFARX1 [remove_from_collection [all_inputs] [get_ports clk]]
+set_driving_cell -lib_cell SDFFARX1 [remove_from_collection [all_inputs] [get_ports clk_50]]
 
 # Indicate the capacitive loading on the outputs equal to 5 inv_2 inverter inputs.
 set_load [expr 5 * [load_of saed90nm_typ/INVX1/IN]] [all_outputs]
@@ -56,7 +66,7 @@ set_load [expr 5 * [load_of saed90nm_typ/INVX1/IN]] [all_outputs]
 compile -ungroup_all
 
 # Make sure we are at the top level
-set current_design  gcd 
+set current_design  tas 
 
 # Generate area and constraints reports on the optimized design
 report_area    > reports/area
@@ -75,7 +85,7 @@ report_hierarchy -full  -nosplit  > reports/cells_used
 check_design > reports/check_design  
 
 # Save the optimized design
-write -format verilog -hierarchy -output  vlogout/gcd.gate.v
-write_sdf sdfout/gcd.gate.sdf -context verilog
+write -format verilog -hierarchy -output  vlogout/tas.gate.v
+write_sdf sdfout/tas.gate.sdf -context verilog
 quit
 
