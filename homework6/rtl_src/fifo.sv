@@ -4,7 +4,7 @@ Author: Jesse Wilson
 ECE 474 Homework 6
 ********************************************************************/
 
-module fifo32 ( 
+module fifo ( 
 	input            wr_clk,   //write clock
 	input            rd_clk,   //read clock
 	input            reset_n,  //reset async active low

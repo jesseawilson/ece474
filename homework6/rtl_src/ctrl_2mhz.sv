@@ -49,14 +49,14 @@ module ctrl_2mhz (
 always_ff @(posedge clk, negedge reset_n)
 begin
 	if(!reset_n)	read_fifo_ps <= no_read_fifo; 
-	else 			read_fifo_ps <= read_fifo_ns;
+	else 		read_fifo_ps <= read_fifo_ns;
 end
 
 always_comb
 begin
 	read_fifo_ns = read_fifo_xx;
 	
-	if(!empty)	read_fifo_ns <= read_fifo;
+	if(!fifo_empty)	read_fifo_ns <= read_fifo;
 	else		read_fifo_ns <= no_read_fifo;
 end
 
@@ -91,7 +91,7 @@ begin
 
 	case(write_ram_ps)
 		no_wr_ram     :	begin
-				if(read && read_byte_ps == byte4)
+				if(read && (read_byte_ps == byte4) )
 					write_ram_ns = wr_ram;
 				else	write_ram_ns = no_wr_ram;
 		end
