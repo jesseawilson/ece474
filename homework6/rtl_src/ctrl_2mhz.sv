@@ -56,8 +56,8 @@ always_comb
 begin
 	read_fifo_ns = read_fifo_xx;
 	
-	if(!fifo_empty)	read_fifo_ns <= read_fifo;
-	else		read_fifo_ns <= no_read_fifo;
+	if(!fifo_empty)	read_fifo_ns = read_fifo;
+	else		read_fifo_ns = no_read_fifo;
 end
 
 
@@ -114,27 +114,23 @@ begin
 
 	case(read_byte_ps)
 		byte1	      :	begin
-				if(read_fifo_ps == read_fifo)
-					read_byte_ns = byte2;
-				else	read_byte_ns = byte1;
+				if(read) read_byte_ns = byte2;
+				else	 read_byte_ns = byte1;
 		end
 
 		byte2	      :	begin
-				if(read_fifo_ps == read_fifo)
-					read_byte_ns = byte3;
-				else	read_byte_ns = byte2;
+				if(read) read_byte_ns = byte3;
+				else	 read_byte_ns = byte2;
 		end
 
 		byte3	      :	begin
-				if(read_fifo_ps == read_fifo)
-					read_byte_ns = byte4;
-				else	read_byte_ns = byte3;
+				if(read) read_byte_ns = byte4;
+				else	 read_byte_ns = byte3;
 		end
 
 		byte4	      :	begin
-				if(read_fifo_ps == read_fifo)
-					read_byte_ns = byte1;
-				else	read_byte_ns = byte4;
+				if(read) read_byte_ns = byte1;
+				else	 read_byte_ns = byte4;
 		end
 	endcase
 end
@@ -145,7 +141,7 @@ always_comb
 begin
 	read = 'x;
 
-	if(read_fifo_ps == read_fifo) 
+	if(read_fifo_ns == read_fifo) 
 		read = 1'b1;
 	else	read = 1'b0;
 end

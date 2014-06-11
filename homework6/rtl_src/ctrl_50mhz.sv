@@ -58,7 +58,7 @@ end
 
 always_comb
 begin
-	byte_assembled = (assem_byte_ps == assembling && !serial_en);
+	byte_assembled = (assem_byte_ps == assembling) && !serial_en;
 end
 
 
